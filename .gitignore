@@ -1,2 +1,4 @@
 *.o
 *.out
+*.replit
+Makefile
