@@ -1,18 +1,23 @@
 #ifndef ACHETABLE_H
 #define ACHETABLE_H
 
+#include "Joueur.h"
+#include "Case.h"
 
-
-class bonhomme
+class Achetable : public Case
 {
-public: //variables accessibles par l'utilisateur
- 
 
+    protected:
 
-private: //variables accessibles seulement par les éléments de la classe
+        Joueur *proprietaire;
+        int prix;
 
+    public: 
 
-
+        virtual void acheter(Joueur *j) = 0;
+        virtual void afficher_case() override;
+        virtual void get_loyer() override;
+        Achetable();
 };
 
-#endif // BONHOMME_H
+#endif

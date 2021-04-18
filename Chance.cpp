@@ -5,6 +5,7 @@ using namespace std;
 #include "Joueur.h"
 
 
+<<<<<<< HEAD
 
 void Chance::action(Joueur J_actuel){
   
@@ -84,5 +85,10 @@ void Chance::action(Joueur J_actuel){
         break;   
     }
   }
+=======
+// Chance::Chance(Joueur J_case){
+//   this->nom = "Lion";
+// }
+>>>>>>> 63102f0b245eae7ace7e58efe185a0fade3a6f1f
 
-};
+// };

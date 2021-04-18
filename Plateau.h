@@ -4,19 +4,22 @@
 #include <iostream>
 #include <stdio.h>      /* printf, scanf, puts, NULL */
 #include <algorithm> 
-#include <vector>       // std::vector
+#include <list>
 #include <map>    // std::vector
 
 using namespace std;
+
+#include "Case.h"
+#include "Joueur.h"
 
 class Plateau{ 
 
 protected:
 
-    multimap<int,int> plateau_de_jeu;
-    vector<int> joueurs;
+    multimap<Case*,list<Joueur*>*> plateau_de_jeu;
 
 public:
+
 
     void affichage_plateau() const;
 
@@ -24,7 +27,8 @@ public:
 
     int nbGares() const;  
 
-    Plateau(int partie);
+    Plateau();
+
 };
 
 #endif
