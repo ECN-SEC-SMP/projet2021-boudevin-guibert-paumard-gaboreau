@@ -1,0 +1,26 @@
+//
+//  Partie.h
+//  Monopoly
+//
+
+
+#ifndef Partie_h
+#define Partie_h
+
+#include <string>
+using namespace std;
+
+class Partie{
+protected:
+    Joueur joueur_actuel;
+public:
+    Joueur get_joueur_actuel(); //renvoie le joueur actuel
+    void tour_de_jeu(); // joue le tour
+private:
+    Case avance(); //avance de n nombre de case
+    int lancer_de_des(); //retourne un entier aléatoire de 1 à 6;
+    void action(); //action en cours-
+    bool finDePartie(); //renvoie "vrai" lorsqu'il ne reste plus qu'un joueur n'aillant pas fait fallite
+};
+
+#endif /* Partie_h */
