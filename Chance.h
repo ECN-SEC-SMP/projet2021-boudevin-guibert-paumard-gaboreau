@@ -2,16 +2,15 @@
 #define Chance_h 
 
 #include "Event.h"
-#include "Joueur.h"
 
 class Chance : public Event
 { 
 
   public :
 
-    Chance(Joueur *J_case);
+    Chance();
 
-    virtual void action() override ; //Chance hérite de sa propre classe action
+    virtual void action(Joueur *cible) override ; //Chance hérite de sa propre classe action
 
 };
 

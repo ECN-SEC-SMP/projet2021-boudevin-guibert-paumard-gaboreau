@@ -23,9 +23,10 @@ class Joueur{
     public:
 
         bool paiement(int argent, Joueur *cible);// paiement entre joueurs
-        int get_nb_gares(); //récupère le nombre de gares possédés par un joueur
+        int get_nb_gares() const; //récupère le nombre de gares possédés par un joueur
         void add_gare(); //ajouter une gare au joueur
-        void affiche_position(); //affiche la position du joueur
+        void affiche_position() const; //affiche la position du joueur
+        Joueur(int argent_depart,Case* pos_depart,string name);
 
 };
 

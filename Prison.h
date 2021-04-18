@@ -8,7 +8,9 @@ class Prison : public Event
 
   public :
 
-    virtual void action() override ; //Chance hérite de sa propre classe action
+    Prison();
+    
+    virtual void action(Joueur *j) override ; //Chance hérite de sa propre classe action
 
 };
 

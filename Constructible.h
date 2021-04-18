@@ -13,11 +13,11 @@ class Constructible : public Achetable
 
     public: 
 
-        int get_nb_maison();
-        int get_nb_hotel();
+        int get_nb_maison() const;
+        int get_nb_hotel() const;
         void add_logements(int nb_achats);
-        virtual void acheter() override;
-
+        virtual void acheter(Joueur *j) override;
+        Constructible();
 };
 
 #endif

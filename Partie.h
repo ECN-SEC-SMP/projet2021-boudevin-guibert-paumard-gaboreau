@@ -27,7 +27,7 @@ class Partie{
         int lancer_de_des(); //retourne un entier aléatoire de 1 à 6;
         void action(); //action en cours-
         bool finDePartie(); //renvoie "vrai" lorsqu'il ne reste plus qu'un joueur n'aillant pas fait fallite
-        
+        Partie(Joueur joueur_1);
 };
 
 #endif /* Partie_h */
