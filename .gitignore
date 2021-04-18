@@ -2,5 +2,5 @@
 *.out
 <<<<<<< HEAD
 .replit
-
-
+Makefile
+*.vscode

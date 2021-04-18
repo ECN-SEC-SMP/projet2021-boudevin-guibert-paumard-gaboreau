@@ -5,8 +5,8 @@ using namespace std;
 #include "Joueur.h"
 
 
-Chance::Chance(Joueur J_case){
-  this->nom = "Lion";
-}
+// Chance::Chance(Joueur J_case){
+//   this->nom = "Lion";
+// }
 
-};
+// };

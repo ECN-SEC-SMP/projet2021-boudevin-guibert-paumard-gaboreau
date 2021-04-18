@@ -1,6 +1,8 @@
 #ifndef Depart_h 
 #define Depart_h 
 
+#include "Event.h"
+
 class Depart : public Event
 { 
 

@@ -1,12 +1,13 @@
-#ifndef Plateau_h 
-#define Plateau_h 
+#ifndef CASE_h 
+#define CASE_h 
 
 #include <iostream>
 #include <stdio.h>
 
 using namespace std;
 
-class Plateau{ 
+class Case
+{ 
 
 protected:
 
@@ -16,7 +17,6 @@ protected:
 public:
 
     virtual void afficher_case() = 0;
-
     virtual void get_loyer() = 0;
 
 };

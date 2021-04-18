@@ -9,12 +9,15 @@
 
 using namespace std;
 
+#include "Case.h"
+#include "Joueur.h"
+
 class Plateau{ 
 
 protected:
 
-    multimap<int,int> plateau_de_jeu;
-    vector<int> joueurs;
+    multimap<int,Case*> plateau_de_jeu;
+    vector<Joueur*> joueurs;
 
 public:
 
