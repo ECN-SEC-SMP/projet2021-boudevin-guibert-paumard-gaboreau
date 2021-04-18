@@ -6,9 +6,9 @@ class Chance : public Event
 
   public :
 
-    Chance(Joueur J_case);
 
-    virtual void action() override ; //Chance hérite de sa propre classe action
+    virtual void action(Joueur J_actuel) override ; //Chance hérite de sa propre classe action
+
 
 };
 

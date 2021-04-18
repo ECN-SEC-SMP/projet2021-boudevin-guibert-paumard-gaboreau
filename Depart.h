@@ -8,7 +8,7 @@ class Depart : public Event
 
   
 
-    virtual void action() override ; //Chance hérite de sa propre classe action
+    virtual void action(Joueur J_actuel) override ; //Chance hérite de sa propre classe action
 
 };
 

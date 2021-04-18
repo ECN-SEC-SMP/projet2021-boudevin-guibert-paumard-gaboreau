@@ -1,12 +1,12 @@
-#ifndef Plateau_h 
-#define Plateau_h 
+#ifndef Case_h 
+#define Case_h 
 
 #include <iostream>
 #include <stdio.h>
 
 using namespace std;
 
-class Plateau{ 
+class Case { 
 
 protected:
 
