@@ -24,7 +24,7 @@ public:
 
     void initPlateau(); 
 
-    int nbGares() const;  
+    int nbGares(Joueur* j) const;  
 
     Plateau();
 
