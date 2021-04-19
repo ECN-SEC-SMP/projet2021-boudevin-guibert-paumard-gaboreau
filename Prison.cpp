@@ -4,11 +4,11 @@ using namespace std;
 #include "Joueur.h"
 
 Prison::Prison (){};
-void afficher_case() {
+void Prison::afficher_case() {
 cout << "CASE PRISON" << endl;
 };
-int get_loyer(){return (0);};
-Joueur* get_proprietaire() { return(nullptr);};
+int Prison::get_loyer(){return (0);};
+Joueur* Prison::get_proprietaire() { return(nullptr);};
 
 void Prison::action(Joueur *j){
 

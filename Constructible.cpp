@@ -10,7 +10,6 @@ int Constructible::get_nb_hotel() const
     return nb_hotel;
 }
 
-
 /* on achète d'abord les maison, une fois la limite des 4 maison
 il achète un hotel, la condition d'achat est que le joeur ai assez d'argent
 le prix d'une maison = 0,7*prix de la case
@@ -33,9 +32,9 @@ return 1 si un logement à été ajouté, 0 sinon
         nb_hotel++;
         return 1;
      }
+    
+    return 0;
 }
-
-
 
 void Constructible::action(Joueur *cible) //acheter case, acheter logement, payer loyer
 {
@@ -67,14 +66,14 @@ void Constructible::afficher_case()
 
     cout<<"cette case possède " <<nb_maison <<"maison"<<endl;
     cout<<"cette case possède " <<nb_hotel <<"hotel"<<endl;
-
-
 }
+
 int Constructible::get_loyer()
 {
-    return(500+500*nb_maison + 2500*nb_hotel);
+    return(500+500*this->nb_maison + 2500*nb_hotel);
 }
-Constructible::Constructible(int coute)
+
+Constructible::Constructible(int price)
 {
-    prix = coute;
+    this->prix_const = price;
 }

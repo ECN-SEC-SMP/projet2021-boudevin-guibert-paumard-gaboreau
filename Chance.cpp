@@ -4,11 +4,13 @@ using namespace std;
 #include "Joueur.h"
 // constructeur de Case chance
 Chance::Chance (){};
-void afficher_case() {
+void Chance::afficher_case() {
   cout << "CASE CHANCE" << endl;
 };
-int get_loyer(){return (0);};
-Joueur* get_proprietaire() { return(nullptr);};
+
+int Chance::get_loyer(){return (0);};
+
+Joueur* Chance::get_proprietaire() { return(nullptr);};
 
 void Chance::action(Joueur *j){
   

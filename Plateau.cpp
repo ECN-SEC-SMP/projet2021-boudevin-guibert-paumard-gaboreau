@@ -83,6 +83,10 @@ void Plateau::initPlateau(){
   copy(vec_cases.begin(),vec_cases.end(),this->plateau_de_jeu.begin());
 };
 
+vector<Case *> Plateau::get_plateau_de_jeu(){
+  return this->plateau_de_jeu;
+}
+
 //constructeur
 Plateau::Plateau(){
   initPlateau();

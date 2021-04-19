@@ -11,7 +11,7 @@ class Constructible : public Achetable
 
         int nb_maison;
         int nb_hotel;
-        int coute; 
+        int prix_const; 
         int loyer;
 
     public: 
@@ -23,7 +23,7 @@ class Constructible : public Achetable
         virtual Joueur* get_proprietaire() override;
         virtual void afficher_case() override;
         virtual int get_loyer() override;
-        Constructible(int coute);
+        Constructible(int price);
 };
 
 #endif

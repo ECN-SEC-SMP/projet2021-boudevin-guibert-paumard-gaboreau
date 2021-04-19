@@ -2,9 +2,8 @@
 #define ACHETABLE_H
 
 #include <iostream>
-#include <stdio.h>      /* printf, scanf, puts, NULL */
+#include <stdio.h>
 #include <algorithm> 
-
 
 using namespace std;
 
@@ -25,7 +24,7 @@ class Achetable : public Case
         virtual void action(Joueur *cible) = 0;
         virtual void afficher_case() = 0;
         virtual int get_loyer() = 0;
-        Achetable();
+        
 };
 
 #endif
