@@ -13,6 +13,7 @@ class Prison : public Case
     virtual void action(Joueur *j) override ; //Chance hérite de sa propre classe action
     virtual void afficher_case() override; //méthode vide 
     virtual int get_loyer() override; // méthode vide
+        virtual Joueur* get_proprietaire() override;
 
 };
 

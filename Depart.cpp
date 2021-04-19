@@ -4,8 +4,12 @@ using namespace std;
 #include "Joueur.h"
 
 Depart::Depart (){};
-void afficher_case() {};
+void afficher_case() {
+cout << "CASE DEPART" << endl;
+
+};
 int get_loyer(){return (0);};
+Joueur* get_proprietaire() { return(nullptr);};
 
 void Depart::action(Joueur *j){
 
