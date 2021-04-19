@@ -35,7 +35,6 @@ int Plateau::nbGares() const{
 //constructeur
 Plateau::Plateau(){
 
-  multimap<Case*,list<Joueur*>*> plateau;
 
   plateau.insert(pair<Case*,list<Joueur*>*>(new Depart(),new list<Joueur*>()));
   plateau.insert(pair<Case*,list<Joueur*>*>(new Chance(),new list<Joueur*>()));

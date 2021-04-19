@@ -8,8 +8,6 @@
 #include <string>
 using namespace std;
 
-#include "Case.h"
-
 class Joueur{
 
     protected:
