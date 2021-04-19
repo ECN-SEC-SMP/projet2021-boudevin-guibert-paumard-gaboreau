@@ -28,7 +28,8 @@ class Joueur{
         bool get_jail(); //renvoi l'état du joueur (jailed)
         void set_jail(); //met jailed à vrai
         int get_fortune(); //renvoi la fortune du joueur
-        void add_fortune(int montant); //ajoute ou retire un montant au joueur        
+        void add_fortune(int montant); //ajoute ou retire un montant au joueur     
+        int get_id(); //renvoi l'id du joueur    
         Joueur(int argent_depart,int position,string name);
 
 };
