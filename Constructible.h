@@ -1,9 +1,10 @@
 #ifndef CONSTRUCTIBLE_H
 #define CONSTRUCTIBLE_H
 
-#include "Case.h"
+#include "Achetable.h"
+#include "Joueur.h"
 
-class Constructible : public Case
+class Constructible : public Achetable
 {
 
     protected:
@@ -18,6 +19,9 @@ class Constructible : public Case
         int get_nb_hotel() const;
         void add_logements(int nb_achats);
         virtual void action(Joueur *cible) override;
+        virtual Joueur* get_proprietaire() override;
+        virtual void afficher_case() override;
+        virtual int get_loyer() override;
         Constructible(int cout);
 };
 

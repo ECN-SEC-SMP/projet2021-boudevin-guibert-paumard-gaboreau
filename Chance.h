@@ -11,8 +11,8 @@ class Chance : public Case
     Chance();
 
     virtual void action(Joueur *cible) override ; //Chance hérite de sa propre classe action
-    virtual void afficher_case() override;
-    virtual void get_loyer() override;
+    virtual void afficher_case() override; //méthode vide 
+    virtual int get_loyer() override; // méthode vide
 
 };
 
