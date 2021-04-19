@@ -26,7 +26,7 @@ class Joueur{
         int get_nb_gares() const; //récupère le nombre de gares possédés par un joueur
         void add_gare(); //ajouter une gare au joueur
         void affiche_position() const; //affiche la position du joueur
-        Joueur(int argent_depart,Case* pos_depart,string name);
+        Joueur(int argent_depart,int position,string name);
 
 };
 

@@ -3,13 +3,13 @@
 
 #include "Event.h"
 
-class Prison : public Event
+class Prison : public Case
 { 
 
   public :
 
     Prison();
-    
+  
     virtual void action(Joueur *j) override ; //Chance hérite de sa propre classe action
 
 };

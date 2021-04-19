@@ -14,7 +14,7 @@ class Achetable : public Case
 
     public: 
 
-        virtual void acheter(Joueur *j) = 0;
+        virtual void action(Joueur *cible) = 0;
         virtual void afficher_case() override;
         virtual void get_loyer() override;
         Achetable();

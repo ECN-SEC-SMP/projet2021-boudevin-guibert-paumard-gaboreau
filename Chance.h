@@ -1,9 +1,9 @@
 #ifndef Chance_h 
 #define Chance_h 
 
-#include "Event.h"
+#include "Case.h"
 
-class Chance : public Event
+class Chance : public Case
 { 
 
   public :
@@ -11,7 +11,8 @@ class Chance : public Event
     Chance();
 
     virtual void action(Joueur *cible) override ; //Chance hérite de sa propre classe action
-
+    virtual void afficher_case() override;
+    virtual void get_loyer() override;
 };
 
 #endif

@@ -7,7 +7,11 @@
 #ifndef Partie_h
 #define Partie_h
 
-#include <string>
+#include <iostream>
+#include <stdio.h>      /* printf, scanf, puts, NULL */
+#include <algorithm> 
+#include <list>
+
 using namespace std;
 
 #include "Joueur.h"
@@ -28,6 +32,7 @@ class Partie{
         void action(); //action en cours-
         bool finDePartie(); //renvoie "vrai" lorsqu'il ne reste plus qu'un joueur n'aillant pas fait fallite
         Partie(Joueur joueur_1);
+
 };
 
 #endif /* Partie_h */

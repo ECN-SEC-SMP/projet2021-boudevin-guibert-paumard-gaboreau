@@ -4,8 +4,7 @@
 #include <iostream>
 #include <stdio.h>      /* printf, scanf, puts, NULL */
 #include <algorithm> 
-#include <list>
-#include <map>    // std::vector
+#include <vector>
 
 using namespace std;
 
@@ -16,7 +15,7 @@ class Plateau{
 
 protected:
 
-    multimap<Case*,list<Joueur*>*> plateau_de_jeu;
+    vector<Case *> plateau_de_jeu;
 
 public:
 

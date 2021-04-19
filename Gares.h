@@ -13,8 +13,9 @@ class Gares : public Achetable
     public: 
 
         int get_id_gare() const;
-        virtual void acheter(Joueur *j) override;
-        Gares(int idgare);
+        virtual void action(Joueur *cible) override ; 
+        Gares(int idgare, int cout);
+        
 };
 
 #endif

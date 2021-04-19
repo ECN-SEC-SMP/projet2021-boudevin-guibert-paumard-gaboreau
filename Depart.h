@@ -1,9 +1,9 @@
 #ifndef Depart_h 
 #define Depart_h 
 
-#include "Event.h"
+#include "Case.h"
 
-class Depart : public Event
+class Depart : public Case
 { 
 
   public :

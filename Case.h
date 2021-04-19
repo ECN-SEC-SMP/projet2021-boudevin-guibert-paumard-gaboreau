@@ -6,6 +6,8 @@
 
 using namespace std;
 
+#include "Joueur.h"
+
 class Case
 { 
 
@@ -16,6 +18,7 @@ protected:
 
 public:
 
+    virtual void action(Joueur *cible) = 0;
     virtual void afficher_case() = 0;
     virtual void get_loyer() = 0;
 
