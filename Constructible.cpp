@@ -1,5 +1,5 @@
 #include "Constructible.h"
-
+#include <string>
 
 int Constructible::get_nb_maison() const
 {
@@ -63,7 +63,7 @@ void Constructible::afficher_case()
     if(this->proprietaire == nullptr)
     cout << "cette case ne possède pas de proprio" <<endl;
     else
-    cout<<"propriétaire = " <<Joueur.id <<endl;
+    cout<<"propriétaire = " <<this -> proprietaire->get_id() <<endl;
 
     cout<<"cette case possède " <<nb_maison <<"maison"<<endl;
     cout<<"cette case possède " <<nb_hotel <<"hotel"<<endl;
@@ -74,7 +74,7 @@ int Constructible::get_loyer()
 {
     return(500+500*nb_maison + 2500*nb_hotel);
 }
-Constructible::Constructible(int cout)
+Constructible::Constructible(int coute)
 {
-    prix = cout;
+    prix = coute;
 }
