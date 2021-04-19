@@ -6,6 +6,7 @@ using namespace std;
 Prison::Prison (){};
 void afficher_case() {};
 int get_loyer(){return (0);};
+Joueur* get_proprietaire() { return(nullptr);};
 
 void Prison::action(Joueur *j){
 
@@ -13,3 +14,4 @@ void Prison::action(Joueur *j){
   j->set_jail();
 
 };
+

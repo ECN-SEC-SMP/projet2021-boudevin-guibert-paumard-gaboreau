@@ -6,6 +6,7 @@ using namespace std;
 Chance::Chance (){};
 void afficher_case() {};
 int get_loyer(){return (0);};
+Joueur* get_proprietaire() { return(nullptr);};
 
 void Chance::action(Joueur *j){
   
