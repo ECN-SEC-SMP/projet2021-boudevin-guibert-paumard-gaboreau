@@ -1,6 +1,13 @@
 #ifndef ACHETABLE_H
 #define ACHETABLE_H
 
+#include <iostream>
+#include <stdio.h>      /* printf, scanf, puts, NULL */
+#include <algorithm> 
+
+
+using namespace std;
+
 #include "Joueur.h"
 #include "Case.h"
 
@@ -11,6 +18,7 @@ class Achetable : public Case
 
         Joueur *proprietaire;
         int prix;
+        int loyer;
 
     public: 
 
