@@ -19,6 +19,9 @@ using namespace std;
 
 class Partie{
 
+    private: 
+        int nb_joueurs;
+
     protected:
         Joueur *joueur_actuel;
         list<Joueur *> list_joueurs;
