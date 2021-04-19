@@ -8,6 +8,8 @@
 #include <string>
 using namespace std;
 
+static int current_id_to_give = 0;
+
 class Joueur{
 
     protected:
@@ -31,6 +33,8 @@ class Joueur{
         void add_fortune(int montant); //ajoute ou retire un montant au joueur     
         int get_id(); //renvoi l'id du joueur    
         Joueur(int argent_depart,int position,string name);
+        void set_position(int pos);
+        int get_position();
 
 };
 

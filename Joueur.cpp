@@ -6,7 +6,11 @@ using namespace std;
 
 Joueur::Joueur(int argent_depart,int position,string name) //constructeur
 {
-  
+  this->id = current_id_to_give;
+  current_id_to_give++;
+  this->fortune = argent_depart;
+  this->position = 0;
+  this->nom = name;
 }
 
 bool Joueur::paiement(int argent, Joueur *cible)// paiement entre joueurs
@@ -29,7 +33,7 @@ bool Joueur::paiement(int argent, Joueur *cible)// paiement entre joueurs
 
 int Joueur::get_nb_gares() const; //récupère le nombre de gares possédés par un joueur
 {
-  return (nb_gares);
+  return this->nb_gares;
 }
 
 void Joueur::add_gare() //ajouter une gare au joueur
@@ -39,8 +43,7 @@ void Joueur::add_gare() //ajouter une gare au joueur
 
 void Joueur::affiche_position() const; //affiche la position du joueur
 {
-  cout<<"Joueur "<< this->id << " : "<< endl; 
-  
+  cout<<"Joueur "<< this->position << " : "<< endl; 
 }
 
 bool Joueur::get_jail() //renvoi l'état du joueur (jailed)
