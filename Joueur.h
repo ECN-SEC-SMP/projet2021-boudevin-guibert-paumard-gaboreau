@@ -17,7 +17,7 @@ class Joueur{
         int id; //identifiant 1 à 5
         int nb_gares; //nombre de gares possédés par le joueur
         string nom; //nom du joueur
-        Case* position; //position du joueur sur le plateau
+        int position; //position du joueur sur le plateau
         int fortune;
         
     public:

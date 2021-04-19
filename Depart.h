@@ -11,6 +11,7 @@ class Depart : public Case
     Depart();
     virtual void action(Joueur *j) override ; //Chance hérite de sa propre classe action
 
+
 };
 
 #endif

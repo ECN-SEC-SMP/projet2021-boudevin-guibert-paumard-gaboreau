@@ -8,19 +8,18 @@ using namespace std;
 
 #include "Joueur.h"
 
-class Case
-{ 
+class Case{ 
 
-protected:
+    protected:
 
-    int id_case;
-    string nom;
+        int id_case;
+        string nom;
 
-public:
+    public:
 
-    virtual void action(Joueur *cible) = 0;
-    virtual void afficher_case() = 0;
-    virtual void get_loyer() = 0;
+        virtual void action(Joueur *cible) = 0;
+        virtual void afficher_case() = 0;
+        virtual void get_loyer() = 0;
 
 };
 

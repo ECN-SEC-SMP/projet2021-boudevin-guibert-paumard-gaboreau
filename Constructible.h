@@ -1,9 +1,9 @@
 #ifndef CONSTRUCTIBLE_H
 #define CONSTRUCTIBLE_H
 
-#include "Achetable.h"
+#include "Case.h"
 
-class Constructible : public Achetable
+class Constructible : public Case
 {
 
     protected:
