@@ -19,7 +19,7 @@ class Case{
 
         virtual void action(Joueur *cible) = 0;
         virtual void afficher_case() = 0;
-        virtual void get_loyer() = 0;
+        virtual int get_loyer() = 0;
 
 };
 
