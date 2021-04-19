@@ -15,8 +15,9 @@ class Joueur{
         int id; //identifiant 1 à 5
         int nb_gares; //nombre de gares possédés par le joueur
         string nom; //nom du joueur
-        int position; //position du joueur sur le plateau
         int fortune;
+        bool jailed; //vrai = en prison / faux = libre
+        int position; //position du joueur sur le plateau
         
     public:
 
@@ -24,6 +25,10 @@ class Joueur{
         int get_nb_gares() const; //récupère le nombre de gares possédés par un joueur
         void add_gare(); //ajouter une gare au joueur
         void affiche_position() const; //affiche la position du joueur
+        bool get_jail(); //renvoi l'état du joueur (jailed)
+        void set_jail(); //met jailed à vrai
+        int get_fortune(); //renvoi la fortune du joueur
+        void add_fortune(int montant); //ajoute ou retire un montant au joueur        
         Joueur(int argent_depart,int position,string name);
 
 };
