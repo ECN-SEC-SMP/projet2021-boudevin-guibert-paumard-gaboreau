@@ -25,6 +25,11 @@ class Constructible : public Achetable
         virtual int get_loyer() override;
         virtual int get_prix() override;
         Constructible(int price,string nom_const);
+
+        virtual bool is_available();
+        virtual void acheter(Joueur *cible);
+
+
 };
 
 #endif
