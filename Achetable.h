@@ -23,6 +23,8 @@ class Achetable : public Case
     public: 
 
         virtual void action(Joueur *cible) = 0;
+        virtual void acheter(Joueur *cible) = 0;
+        virtual bool is_available() = 0;
         virtual void afficher_case() = 0;
         virtual int get_loyer() = 0;
         virtual int get_prix() = 0;

@@ -22,7 +22,7 @@ class Gares : public Achetable
         virtual Joueur* get_proprietaire() override;
         virtual int get_prix() override;
 
-        virtual void is_available(Joueur *cible);
+        virtual bool is_available();
         virtual void acheter(Joueur *cible);
 };
 

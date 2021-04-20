@@ -79,3 +79,18 @@ int Gares::get_prix()
 {
     return this->prix_const;
 }
+
+void Gares::acheter(Joueur *cible) 
+{
+    cible ->add_fortune(-1*(this ->get_prix()));
+    this-> proprietaire = cible;
+}
+
+
+bool Gares :: is_available() //renvoie 1 si il y a un proprio, 0 sinon
+{
+    if(this ->get_proprietaire() == nullptr)
+    return 0;
+    else
+    return 1;
+}
