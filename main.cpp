@@ -10,9 +10,7 @@
 #include "Prison.h"
 
 int main() {
-  // generate random seed for Dice
  
-
     Partie *p = new Partie();
 
     Joueur *j1 = new Joueur("Louis");
