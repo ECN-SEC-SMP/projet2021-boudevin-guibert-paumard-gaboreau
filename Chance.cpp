@@ -7,7 +7,7 @@ using namespace std;
 // constructeur de Case chance
 Chance::Chance (){};
 void Chance::afficher_case() {
-  cout << "CASE CHANCE" << endl;
+  cout << "CASE CHANCE/n" << endl;
 };
 
 int Chance::get_loyer(){return (0);};
@@ -20,7 +20,7 @@ void Chance::action(Joueur *j){
     srand (time(NULL));
 
   
-  cout << "Le joueur tire une carte chance" << endl;
+  cout << "Le joueur tire une carte chance/n" << endl;
   // le joeur tire aléatoirement une carte parmis 12
   int carte = rand() % 12;
 
@@ -33,7 +33,7 @@ void Chance::action(Joueur *j){
     }
        
       case 1 :{
-         cout << "Erwan a sortis 5 t-shirt pour la SEC vous les acheter tous même le lila car il est stylé, vous lui devez 100€(x10)" << endl;
+         cout << "Erwan a sortis 5 t-shirts pour la SEC vous les acheter tous, même le lila car il est stylé, vous lui devez 100€(x10)" << endl;
     // enlever l'argent du joueur
     j->add_fortune(-1000);
       }
@@ -45,7 +45,7 @@ void Chance::action(Joueur *j){
       }
 
       case 3: {
-         cout << "Vous avez liché tout le weekend,la note est salé...Vous devez 300€(x10) de pumpkin. En plus vous avez perdu à Chi-fou-liche contre Colmant" << endl;
+         cout << "Vous avez liché tout le weekend,la note est salée...Vous devez 300€(x10) de pumpkin. En plus vous avez perdu à Chi-Fou-Liche contre Colmant" << endl;
     // enlever l'argent du joueur
     j->add_fortune(-3000);  
 
@@ -57,13 +57,13 @@ void Chance::action(Joueur *j){
 
       }  
       case 5: {
-         cout << "Payez votre adhésion au BDE, 100€(x10)" << endl;
+         cout << "Payez votre adhésion au BDE, 100€(x10) (diviser par deux car on est alternant faut pas abuser)" << endl;
     // enlever l'argent du joueur
-    j->add_fortune(-1000);  
+    j->add_fortune(-500);  
       }  
 
       case 6: {
-         cout << "C'est votre anniversaire, mais comme on a la flemme que chaque joueur paye on vous file directement 200€(x10)" << endl;
+         cout << "C'est votre anniversaire, mais comme on a la flemme que chaque joueur paye, on vous file directement 200€(x10)" << endl;
     // Rajouter l'argent du joueur
     j->add_fortune(2000);  
       } 
@@ -83,18 +83,18 @@ void Chance::action(Joueur *j){
     j->add_fortune(-1500);
       } 
       case 10: {
-         cout << "Vous retirez une partie de votre investisemment en crypto monnaie, vous récupérer 500€(x10) " << endl;
+         cout << "Vous retirez une partie de votre investisemment en crypto monnaie, vous récupérez 500€(x10) " << endl;
     // rajoutez l'argent du joueur
     j->add_fortune(5000);
       }
       case 11: {
-         cout << "Vous en avez marre d'acheter des maison et vous vous lancez dans le monde des cryptomonnaie, vous commencez fort avec 750€(x10) " << endl;
+         cout << "Vous en avez marre d'acheter des maison et vous vous lancez dans le monde des cryptomonnaies, vous commencez fort avec 750€(x10) " << endl;
     // enlevez l'argent du joueur
     j->add_fortune(7500); 
       }
       default: {
 
-      cout << " C'est par defaut il se passe rien" << endl;
+      cout << " C'est par défaut il se passe rien" << endl;
         break;   
     }
   }
