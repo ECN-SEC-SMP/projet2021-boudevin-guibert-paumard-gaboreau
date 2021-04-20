@@ -19,7 +19,7 @@ void Constructible::afficher_case() {
  // test si pas de propriétaire
  if(this->proprietaire == nullptr){
 
-  vs.push_back("- sans propiétaire");
+  vs.push_back("- sans propriétaire");
 
  }
  // si il y a un propriétaire
