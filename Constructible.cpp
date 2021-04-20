@@ -60,11 +60,11 @@ void Constructible::afficher_case() {
 
 int Constructible::get_nb_maison() const
 {
-    return nb_maison;
+    return this->nb_maison;
 }
 int Constructible::get_nb_hotel() const
 {
-    return nb_hotel;
+    return this->nb_hotel;
 }
 
 /* on achète d'abord les maison, une fois la limite des 4 maison
@@ -123,12 +123,12 @@ int Constructible::get_loyer()
 
 int Constructible::get_prix()
 {
-    return prix_const;
+    return this->prix_const;
 }
 
 
-Constructible::Constructible(int price,int nom_const)
+Constructible::Constructible(int price,string nom_const)
 {
     this->prix_const = price;
-    this->nom_const = nom;
+    this->nom = nom_const;
 }
