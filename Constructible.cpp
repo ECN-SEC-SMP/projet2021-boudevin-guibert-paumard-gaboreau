@@ -134,8 +134,17 @@ Constructible::Constructible(int price,string nom_const)
 
 }
 
-void Constructible::acheter(Joueur *cible)
+void Constructible::acheter(Joueur *cible) 
 {
     cible ->add_fortune(-1*(this ->get_prix()));
     this-> proprietaire = cible;
+}
+
+
+bool Constructible :: is_available() //renvoie 1 si il y a un proprio, 0 sinon
+{
+    if(this ->get_proprietaire() == nullptr)
+    return 0;
+    else
+    return 1;
 }

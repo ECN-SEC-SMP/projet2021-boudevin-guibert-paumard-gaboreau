@@ -76,7 +76,7 @@ bool Partie::tour_de_jeu() // joue le tour
 
     this->joueur_actuel = *l_front;
 
-    cout << *l_front << '\n';
+    //cout << *l_front << '\n';
 
     return true;
 

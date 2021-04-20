@@ -30,9 +30,15 @@ void Chance::action(Joueur *j){
 
     // rajouter l'argent du joueur
      j->add_fortune(7500);
+<<<<<<< HEAD
      break ;
   
       case 1 
+=======
+    }
+       
+      case 1 :{
+>>>>>>> 55fa4d473a2e8a447ac46ffa8d6eb7e101cbd565
          cout << "Erwan a sortis 5 t-shirts pour la SEC vous les acheter tous, même le lila car il est stylé, vous lui devez 100€(x10)" << endl;
     // enlever l'argent du joueur
     j->add_fortune(-1000);
@@ -45,7 +51,11 @@ void Chance::action(Joueur *j){
     j->add_fortune(3200);       
       break ;
 
+<<<<<<< HEAD
       case 3: 
+=======
+      case 3: {
+>>>>>>> 55fa4d473a2e8a447ac46ffa8d6eb7e101cbd565
          cout << "Vous avez liché tout le weekend,la note est salée...Vous devez 300€(x10) de pumpkin. En plus vous avez perdu à Chi-Fou-Liche contre Colmant" << endl;
     // enlever l'argent du joueur
     j->add_fortune(-3000);  
@@ -57,6 +67,7 @@ void Chance::action(Joueur *j){
     j->add_fortune(3000);  
     break ;
 
+<<<<<<< HEAD
       
       case 5: 
          cout << "Payez votre adhésion au BDE, 100€(x10) (diviser par deux car on est alternant faut pas abuser)" << endl;
@@ -65,6 +76,16 @@ void Chance::action(Joueur *j){
       break ;  
 
       case 6: 
+=======
+      }  
+      case 5: {
+         cout << "Payez votre adhésion au BDE, 100€(x10) (diviser par deux car on est alternant faut pas abuser)" << endl;
+    // enlever l'argent du joueur
+    j->add_fortune(-500);  
+      }  
+
+      case 6: {
+>>>>>>> 55fa4d473a2e8a447ac46ffa8d6eb7e101cbd565
          cout << "C'est votre anniversaire, mais comme on a la flemme que chaque joueur paye, on vous file directement 200€(x10)" << endl;
     // Rajouter l'argent du joueur
     j->add_fortune(2000);  
@@ -83,6 +104,7 @@ void Chance::action(Joueur *j){
          cout << "On vous surnome la Chic et vous devez payer vos frais dentaire, 150€(x10)" << endl;
     // enlever l'argent du joueur
     j->add_fortune(-1500);
+<<<<<<< HEAD
       break ; 
       case 10: 
          cout << "Vous retirez une partie de votre investisemment en crypto monnaie, vous récupérez 500€(x10) " << endl;
@@ -90,6 +112,15 @@ void Chance::action(Joueur *j){
     j->add_fortune(5000);
       break ;
       case 11: 
+=======
+      } 
+      case 10: {
+         cout << "Vous retirez une partie de votre investisemment en crypto monnaie, vous récupérez 500€(x10) " << endl;
+    // rajoutez l'argent du joueur
+    j->add_fortune(5000);
+      }
+      case 11: {
+>>>>>>> 55fa4d473a2e8a447ac46ffa8d6eb7e101cbd565
          cout << "Vous en avez marre d'acheter des maison et vous vous lancez dans le monde des cryptomonnaies, vous commencez fort avec 750€(x10) " << endl;
     // enlevez l'argent du joueur
     j->add_fortune(7500); 
