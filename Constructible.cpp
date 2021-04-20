@@ -130,5 +130,4 @@ int Constructible::get_prix()
 Constructible::Constructible(int price,int nom_const)
 {
     this->prix_const = price;
-    this->nom_const = nom;
 }

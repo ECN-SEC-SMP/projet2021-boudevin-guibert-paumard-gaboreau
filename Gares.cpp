@@ -8,12 +8,17 @@ int Gares::get_id_gare() const
 
 void Gares::action(Joueur *cible)
 {
-    if(proprietaire == nullptr)
+    if(proprietaire == nullptr) //si la case n'a pas de propriétaire
     {
-        if(cible ->get_fortune() >= this->prix)
+        if(cible ->get_fortune() >= this->prix) // si le joueur à assez de sous
         {
-            
+            this -> proprietaire = cible;
         }
+    }
+    else if(proprietaire != nullptr)
+    {
+        cible ->add_fortune(-1*(this->get_loyer()));
+        this ->proprietaire ->add_fortune(get_loyer());
     }
 }
 

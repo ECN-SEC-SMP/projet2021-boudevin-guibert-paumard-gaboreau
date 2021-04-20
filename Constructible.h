@@ -24,7 +24,7 @@ class Constructible : public Achetable
         virtual void afficher_case() override;
         virtual int get_loyer() override;
         virtual int get_prix() override;
-        Constructible(int price, string nom_const);
+        Constructible(int price,int nom_const);
 };
 
 #endif
