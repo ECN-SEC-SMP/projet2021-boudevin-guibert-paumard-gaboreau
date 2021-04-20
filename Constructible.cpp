@@ -58,11 +58,11 @@ void Constructible::afficher_case() {
 };
 
 
-int Constructible::get_nb_maison() const
+int Constructible::get_nb_maison() const //retourne le nombre de maison sur la case
 {
     return this->nb_maison;
 }
-int Constructible::get_nb_hotel() const
+int Constructible::get_nb_hotel() const //retourne le nombre d'hôtels sur la case
 {
     return this->nb_hotel;
 }
@@ -93,7 +93,7 @@ return 1 si un logement à été ajouté, 0 sinon
     
     return 0;
 }
-
+//todo : modifier la méthode pour quelle ne fasse que le payement de loyer et l'achat des maisons/hotel
 void Constructible::action(Joueur *cible) //acheter case, acheter logement, payer loyer
 {
     if(this ->proprietaire == nullptr) //si pas de proprio, on essaie d'acheter
@@ -111,17 +111,17 @@ void Constructible::action(Joueur *cible) //acheter case, acheter logement, paye
         this ->proprietaire->add_fortune(get_loyer());
     }
 }
-Joueur *Constructible::get_proprietaire()
+Joueur *Constructible::get_proprietaire() //renvoie un pointeur vers le propriétaire, renvoie nullptn si celui ci n'exiset pas
 {
     return this->proprietaire;
 }
 
-int Constructible::get_loyer()
+int Constructible::get_loyer() //le loyer est calculé en fonction du nombre de maisons et du nombre d'hotel sur la case
 {
-    return(500+500*this->nb_maison + 2500*nb_hotel);
+    return((this ->loyer)+(this -> loyer)*this->nb_maison + (this->prix)*nb_hotel)*2;
 }
 
-int Constructible::get_prix()
+int Constructible::get_prix() //renvoie le prix de la case
 {
     return this->prix;
 }

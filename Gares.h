@@ -11,6 +11,7 @@ class Gares : public Achetable
 
         int id_gare;
         int prix = 2500;
+        int loyer = 1000;
 
     public: 
 

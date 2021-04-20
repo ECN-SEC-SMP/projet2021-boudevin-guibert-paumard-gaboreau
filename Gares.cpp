@@ -37,12 +37,12 @@ void Gares::afficher_case() {
 
 };
 
-int Gares::get_id_gare() const
+int Gares::get_id_gare() const //renvoie ne numéro d'identifiant de la gare
 {
     return this->id_gare;
 }
-
-void Gares::action(Joueur *cible)
+//todo : modifier pour qu'action ne serve qu'à payer le loyer et acheter des maisons/hotels
+void Gares::action(Joueur *cible) 
 {
     if(proprietaire == nullptr) //si la case n'a pas de propriétaire
     {
@@ -67,7 +67,7 @@ Gares::Gares(int idgare, int prix_gare, string nom_const)
 
 int Gares::get_loyer() //retourne le loyer que doit payer un joueur en fonction du nombre de gare possédé
 {
-    return((this->proprietaire->get_nb_gares())*2500);
+    return((this->proprietaire->get_nb_gares())*(this->loyer));
 }
 
 Joueur *Gares::get_proprietaire()
