@@ -10,7 +10,7 @@ class Gares : public Achetable
     protected:
 
         int id_gare;
-        int prix_const;
+        int prix = 2500;
 
     public: 
 

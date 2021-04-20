@@ -13,7 +13,7 @@ void Gares::afficher_case() {
   vs.push_back(this->nom);
 
   //on ajoute le coût
-  vs.push_back ("(coût : "+ to_string( this->prix_const)+")");
+  vs.push_back ("(coût : "+ to_string( this->prix)+")");
   
  // test si pas de propriétaire
  if(this->proprietaire == nullptr){
@@ -77,7 +77,7 @@ Joueur *Gares::get_proprietaire()
 
 int Gares::get_prix()
 {
-    return this->prix_const;
+    return this->prix;
 }
 
 void Gares::acheter(Joueur *cible) 

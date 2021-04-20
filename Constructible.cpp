@@ -14,7 +14,7 @@ void Constructible::afficher_case() {
   vs.push_back(this->nom);
 
   //on ajoute le coût
-  vs.push_back ("(coût : "+ to_string( this->prix_const)+")");
+  vs.push_back ("(coût : "+ to_string( this->prix)+")");
   
  // test si pas de propriétaire
  if(this->proprietaire == nullptr){
@@ -123,13 +123,13 @@ int Constructible::get_loyer()
 
 int Constructible::get_prix()
 {
-    return this->prix_const;
+    return this->prix;
 }
 
 
 Constructible::Constructible(int price,string nom_const)
 {
-    this->prix_const = price;
+    this->prix = price;
     this->nom = nom_const;
 
 }
