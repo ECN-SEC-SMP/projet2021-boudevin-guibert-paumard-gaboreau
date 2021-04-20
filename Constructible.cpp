@@ -131,4 +131,11 @@ Constructible::Constructible(int price,string nom_const)
 {
     this->prix_const = price;
     this->nom = nom_const;
+
+}
+
+void Constructible::acheter(Joueur *cible)
+{
+    cible ->add_fortune(-1*(this ->get_prix()));
+    this-> proprietaire = cible;
 }
