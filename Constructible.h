@@ -23,7 +23,8 @@ class Constructible : public Achetable
         virtual Joueur* get_proprietaire() override;
         virtual void afficher_case() override;
         virtual int get_loyer() override;
-        Constructible(int price);
+        virtual int get_prix() override;
+        Constructible(int price, string nom_const);
 };
 
 #endif

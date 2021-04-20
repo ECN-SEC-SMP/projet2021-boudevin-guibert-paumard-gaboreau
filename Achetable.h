@@ -4,6 +4,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <algorithm> 
+#include <string>
 
 using namespace std;
 
@@ -24,6 +25,7 @@ class Achetable : public Case
         virtual void action(Joueur *cible) = 0;
         virtual void afficher_case() = 0;
         virtual int get_loyer() = 0;
+        virtual int get_prix() = 0;
         
 };
 
