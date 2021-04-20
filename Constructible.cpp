@@ -79,6 +79,7 @@ return 1 si un logement à été ajouté, 0 sinon
      if(nb_maison <4)
      {
         if(this ->proprietaire->get_fortune() >= this->prix)
+        this -> proprietaire -> add_fortune(-0.7*(this ->prix));
         nb_maison++;
         return 1;
      }
@@ -120,7 +121,14 @@ int Constructible::get_loyer()
     return(500+500*this->nb_maison + 2500*nb_hotel);
 }
 
-Constructible::Constructible(int price)
+int Constructible::get_prix()
+{
+    return prix_const;
+}
+
+
+Constructible::Constructible(int price,int nom_const)
 {
     this->prix_const = price;
+    this->nom_const = nom;
 }

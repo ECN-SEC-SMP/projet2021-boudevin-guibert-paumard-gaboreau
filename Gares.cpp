@@ -8,13 +8,19 @@ int Gares::get_id_gare() const
 
 void Gares::action(Joueur *cible)
 {
-
+    if(proprietaire == nullptr)
+    {
+        if(cible ->get_fortune() >= this->prix)
+        {
+            
+        }
+    }
 }
 
-Gares::Gares(int idgare, int cout)
+Gares::Gares(int idgare, int prix_gare, string nom_gare)
 {
     this->id_gare = idgare;
-    this->prix = cout;
+    this->prix = prix_gare;
 }
 
 void Gares::afficher_case()
@@ -24,7 +30,7 @@ void Gares::afficher_case()
     else 
         cout<<"le propiétaire de cette case est à " <<this->proprietaire->get_id()<<endl;
 }
-int Gares::get_loyer()
+int Gares::get_loyer() //retourne le loyer que doit payer un joueur en fonction du nombre de gare possédé
 {
     return((this->proprietaire->get_nb_gares())*2500);
 }
@@ -32,4 +38,9 @@ int Gares::get_loyer()
 Joueur *Gares::get_proprietaire()
 {
     return this->proprietaire;
+}
+
+int Gares::get_prix()
+{
+    return prix_const;
 }
