@@ -3,7 +3,7 @@
 
 int Gares::get_id_gare() const
 {
-    return id_gare;
+    return this->id_gare;
 }
 
 void Gares::action(Joueur *cible)
@@ -22,10 +22,11 @@ void Gares::action(Joueur *cible)
     }
 }
 
-Gares::Gares(int idgare, int prix_gare, string nom_gare)
+Gares::Gares(int idgare, int prix_gare, string nom_const)
 {
     this->id_gare = idgare;
     this->prix = prix_gare;
+    this->nom = nom_const;
 }
 
 void Gares::afficher_case()
@@ -47,5 +48,5 @@ Joueur *Gares::get_proprietaire()
 
 int Gares::get_prix()
 {
-    return prix_const;
+    return this->prix_const;
 }
