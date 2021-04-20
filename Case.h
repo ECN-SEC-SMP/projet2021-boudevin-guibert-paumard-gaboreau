@@ -14,7 +14,7 @@ class Case{
 
         int id_case;
         string nom;
-        Joueur* proprietaire;
+        Joueur* proprietaire = nullptr;
 
     public:
 

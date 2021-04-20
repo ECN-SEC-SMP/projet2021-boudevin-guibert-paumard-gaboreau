@@ -1,5 +1,62 @@
 #include "Constructible.h"
 #include <string>
+using namespace std;
+#include <iostream>     // std::cout
+#include <algorithm>    // std::replace
+#include <vector>       // std::vector
+#include <iterator>
+
+void Constructible::afficher_case() {
+  // création du vecteur
+  vector<string> vs;
+  
+  // on ajoute le nom de la case
+  vs.push_back(this->nom);
+
+  //on ajoute le coût
+  vs.push_back ("(coût : "+ to_string( this->prix_const)+")");
+  
+ // test si pas de propriétaire
+ if(this->proprietaire == nullptr){
+
+  vs.push_back("- sans propiétaire");
+
+ }
+ // si il y a un propriétaire
+ else{
+  
+  vs.push_back("propriétaire :");
+  vs.push_back(this->proprietaire->nom);
+
+  // si le terrain comporte une ou des maisons
+  if(this->nb_maison != 0){
+  vs.push_back(to_string(this->nb_maison));
+    // si une seule maison
+    if(this->nb_maison == 1){ vs.push_back("maison,"); }
+    // si plusieurs maisons
+    else{vs.push_back("maisons,");}
+  }
+
+    // si le terrain comporte un ou des hotels
+  if(this->nb_hotel != 0){
+  vs.push_back(to_string(this->nb_hotel));
+    // si un seul hotel
+    if(this->nb_hotel == 1){ vs.push_back("hotel,"); }
+    // si plusieurs hotels
+    else{vs.push_back("hotels,");}
+  }
+
+  //affichage loyer
+  vs.push_back("loyer =");
+  vs.push_back(to_string(this->loyer));
+ }
+
+
+  copy(vs.begin(),vs.end(),ostream_iterator<string>(cout," "));
+  cout << endl;
+
+};
+
 
 int Constructible::get_nb_maison() const
 {
@@ -57,16 +114,6 @@ void Constructible::action(Joueur *cible) //acheter case, acheter logement, paye
 Joueur *Constructible::get_proprietaire()
 {
     return this->proprietaire;
-}
-void Constructible::afficher_case()
-{
-    if(this->proprietaire == nullptr)
-    cout << "cette case ne possède pas de proprio" <<endl;
-    else
-    cout<<"propriétaire = " <<this -> proprietaire->get_id() <<endl;
-
-    cout<<"cette case possède " <<nb_maison <<"maison"<<endl;
-    cout<<"cette case possède " <<nb_hotel <<"hotel"<<endl;
 }
 
 int Constructible::get_loyer()

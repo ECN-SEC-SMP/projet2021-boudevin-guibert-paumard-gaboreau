@@ -16,13 +16,13 @@ class Joueur{
 
         int id; //identifiant 1 à 5
         int nb_gares; //nombre de gares possédés par le joueur
-        string nom; //nom du joueur
+        
         int fortune;
         bool jailed; //vrai = en prison / faux = libre
         int position; //position du joueur sur le plateau
         
     public:
-
+        string nom; //nom du joueur
         Joueur(string name);
         bool paiement(int argent, Joueur *cible);// paiement entre joueurs
         int get_nb_gares() const; //récupère le nombre de gares possédés par un joueur
