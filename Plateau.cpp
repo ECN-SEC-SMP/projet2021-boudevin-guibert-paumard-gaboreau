@@ -6,14 +6,16 @@
 
 using namespace std;
 
+#include "Joueur.h"
+#include "Plateau.h"
 #include "Case.h"
 #include "Achetable.h"
-#include "Gares.h"
 #include "Prison.h"
 #include "Chance.h"
-#include "Constructible.h"
 #include "Depart.h"
-#include "Plateau.h"
+#include "Constructible.h"
+#include "Gares.h"
+
 
 void Plateau::affichage_plateau() const{
   for(Case* c : this->plateau_de_jeu)
@@ -42,52 +44,56 @@ void Plateau::initPlateau(){
 
   vec_cases.push_back(new Depart());
   vec_cases.push_back(new Chance());
-  vec_cases.push_back(new Constructible(20000));
-  vec_cases.push_back(new Constructible(10));
-  vec_cases.push_back(new Gares(1,20000));
-  vec_cases.push_back(new Constructible(20000));
+  vec_cases.push_back(new Constructible(200,"Rue Foch"));
+  vec_cases.push_back(new Constructible(10, "Rue de la liberté"));
+  vec_cases.push_back(new Gares(1,20000,"Gare de Nantes"));
+  vec_cases.push_back(new Constructible(20000,"Allée du saucisson"));
   vec_cases.push_back(new Chance());
-  vec_cases.push_back(new Constructible(20000));
-  vec_cases.push_back(new Constructible(20000));
+  vec_cases.push_back(new Constructible(20000, "Ora ora street"));
+  vec_cases.push_back(new Constructible(20000, "Bankai avenue"));
   vec_cases.push_back(new Prison());
-  vec_cases.push_back(new Constructible(20000));
-  vec_cases.push_back(new Gares(2,20000));
-  vec_cases.push_back(new Constructible(20000));
+  vec_cases.push_back(new Constructible(20000,"Hameau Marie Curie"));
+  vec_cases.push_back(new Gares(2,20000,"Gare de Larry la Chance"));
+  vec_cases.push_back(new Constructible(20000,"Place de Centrale"));
   vec_cases.push_back(new Chance());
-  vec_cases.push_back(new Constructible(20000));
-  vec_cases.push_back(new Constructible(20000));
-  vec_cases.push_back(new Constructible(20000));
-  vec_cases.push_back(new Constructible(20000));
+  vec_cases.push_back(new Constructible(20000,"Place du king kong"));
+  vec_cases.push_back(new Constructible(20000, "Avenue de Paris"));
+  vec_cases.push_back(new Constructible(20000, "Rue des pendus"));
+  vec_cases.push_back(new Constructible(20000, "Rue du caprice d'ines"));
   vec_cases.push_back(new Chance());
-  vec_cases.push_back(new Constructible(20000));
-  vec_cases.push_back(new Constructible(20000));
-  vec_cases.push_back(new Constructible(20000));
-  vec_cases.push_back(new Gares(3,20000));
+  vec_cases.push_back(new Constructible(20000,"Impasse des Partous"));
+  vec_cases.push_back(new Constructible(20000, "Place de la KOUIZINE"));
+  vec_cases.push_back(new Constructible(20000, "Maison de mezuzah"));
+  vec_cases.push_back(new Gares(3,20000, "Gare age a velos"));
   vec_cases.push_back(new Chance());
-  vec_cases.push_back(new Constructible(20000));
-  vec_cases.push_back(new Constructible(20000));
+  vec_cases.push_back(new Constructible(20000,"Immeuble de la soirée zéro"));
+  vec_cases.push_back(new Constructible(20000, "Avenue en construction"));
   vec_cases.push_back(new Chance());
-  vec_cases.push_back(new Constructible(20000));
+  vec_cases.push_back(new Constructible(20000,"Avenue Jeanne Oscoure"));
   vec_cases.push_back(new Prison());
-  vec_cases.push_back(new Constructible(20000));
-  vec_cases.push_back(new Constructible(20000));
+  vec_cases.push_back(new Constructible(20000,"Impasse passable"));
+  vec_cases.push_back(new Constructible(20000, "Immeuble de Sam"));
   vec_cases.push_back(new Chance());
-  vec_cases.push_back(new Constructible(20000));
-  vec_cases.push_back(new Gares(4,20000));
+  vec_cases.push_back(new Constructible(20000,"Hameau de la torture"));
+  vec_cases.push_back(new Gares(4,20000,"Gare de Brest"));
   vec_cases.push_back(new Chance());
   vec_cases.push_back(new Prison());
-  vec_cases.push_back(new Constructible(20000));
-  vec_cases.push_back(new Constructible(20000));
-  vec_cases.push_back(new Constructible(20000));
+  vec_cases.push_back(new Constructible(20000,"Route bonne ou mauvaise situations"));
+  vec_cases.push_back(new Constructible(20000,"Rue de Napoleon"));
+  vec_cases.push_back(new Constructible(20000,"Appartement Bonaparte"));
+
+  //On a besoin de resize afin d'ajuster la place mémoire du vector à la taille du plateau de jeu 
+  this->plateau_de_jeu.resize(vec_cases.size());
 
   copy(vec_cases.begin(),vec_cases.end(),this->plateau_de_jeu.begin());
+
 };
 
 vector<Case *> Plateau::get_plateau_de_jeu(){
   return this->plateau_de_jeu;
-}
+};
 
 //constructeur
 Plateau::Plateau(){
-  initPlateau();
+  this->plateau_de_jeu.clear();
 };

@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include <assert.h>
 extern "C"{
     #include <unistd.h>
 }
@@ -7,17 +8,36 @@ using namespace std;
 
 #include "Partie.h"
 
+// constructeur
 Partie::Partie(){
+  this->joueur_actuel = nullptr;
+  this->list_joueurs.clear();
+  //On initialise un nouveau plateau de jeu
+  this->Plat = new Plateau();
+  this->Plat->initPlateau();
+}; 
 
-}; // constructeur
-
+//Une fois que la quantité de joueurs inscrite est suffisante on peut démarrer une partie 
 void Partie::demarrer_partie(){
   if(this->list_joueurs.size() < 2){
     cout << "Nombre de joueurs requis insuffisants" << endl;
+    exit(-1);
   }
-  this->Plat = new Plateau();
+  else if(this->list_joueurs.size() > 5){
+    cout << "Nombre de joueurs trop élevé" << endl;
+    exit(-1);
+  }
   this->joueur_actuel = this->list_joueurs.front();
-}; // constructeur
+  //On joue tant qu'il n'y a pas un joueur gagnant 
+  while(this->tour_de_jeu()){
+    sleep(1);
+  }
+  if(this->list_joueurs.size() == 1){
+    cout << "Le gagnant est : " << endl;
+    //Afficher joueur !
+    this->list_joueurs.front()->affiche_position();
+  }
+};
 
 bool Partie::tour_de_jeu() // joue le tour
 {
@@ -57,9 +77,6 @@ bool Partie::tour_de_jeu() // joue le tour
     this->joueur_actuel = *l_front;
 
     cout << *l_front << '\n';
-
-    //Attente ? 
-    sleep(1);
 
     return true;
 
