@@ -10,19 +10,20 @@ class Constructible : public Achetable
     protected:
 
         int nb_maison;
-        int nb_botel;
-        int cout; 
+        int nb_hotel;
+        int prix_const; 
+        int loyer;
 
     public: 
 
         int get_nb_maison() const;
         int get_nb_hotel() const;
-        void add_logements(int nb_achats);
+        bool add_logements(void);
         virtual void action(Joueur *cible) override;
         virtual Joueur* get_proprietaire() override;
         virtual void afficher_case() override;
         virtual int get_loyer() override;
-        Constructible(int cout);
+        Constructible(int price);
 };
 
 #endif

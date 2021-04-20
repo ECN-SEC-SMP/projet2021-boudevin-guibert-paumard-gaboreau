@@ -3,7 +3,6 @@
 //  Monopoly
 //
 
-
 #ifndef Partie_h
 #define Partie_h
 
@@ -20,25 +19,27 @@ using namespace std;
 
 class Partie{
 
-    private: 
-        int nb_joueurs;
-
     protected:
+
         Joueur *joueur_actuel;
         list<Joueur *> list_joueurs;
         Plateau *Plat ;
 
     public:
+
         Joueur* get_joueur_actuel(); //renvoie le joueur actuel
-        void tour_de_jeu(); // joue le tour
-        
+        bool ajouter_joueurs(Joueur *j); //retourne vrai si l'ajout s'est correctement déroulé
+        void demarrer_partie(); //initialise la partie et la joue en boucle
+        Partie();
+
     private:
-        void avance(); //avance de n nombre de case
+
+        void avance(int avancee); //avance de n nombre de case
         int lancer_de_des(); //retourne un entier aléatoire de 1 à 6;
         void action(); //action en cours-
         bool finDePartie(); //renvoie "vrai" lorsqu'il ne reste plus qu'un joueur n'aillant pas fait fallite
-        Partie();
-        void ajouter_joueurs(Joueur *j);
+        bool tour_de_jeu(); // joue le tour -> retourne true tant que la partie doit continuer
+
 
 };
 

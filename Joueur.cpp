@@ -1,12 +1,23 @@
-#include "Joueur.h"
 #include <string>
 #include <iostream>
 using namespace std;
 
+#include "Joueur.h"
 
-Joueur::Joueur(int argent_depart,int position,string name) //constructeur
+Joueur::Joueur(string name) //constructeur
 {
-  
+  this->id = current_id_to_give;
+  current_id_to_give++;
+  this->fortune = 100000;
+  this->position = 0;
+  this->nom = name;
+  this->jailed = false;
+  this->nb_gares = 0;
+}
+
+int Joueur::get_nb_gares() const //récupère le nombre de gares possédés par un joueur
+{
+  return this->nb_gares;
 }
 
 bool Joueur::paiement(int argent, Joueur *cible)// paiement entre joueurs
@@ -27,20 +38,14 @@ bool Joueur::paiement(int argent, Joueur *cible)// paiement entre joueurs
   }
 }
 
-int Joueur::get_nb_gares() const; //récupère le nombre de gares possédés par un joueur
-{
-  return (nb_gares);
-}
-
 void Joueur::add_gare() //ajouter une gare au joueur
 {
   this->nb_gares =  (this->nb_gares + 1) ;
 }
 
-void Joueur::affiche_position() const; //affiche la position du joueur
+void Joueur::affiche_position() const //affiche la position du joueur
 {
-  cout<<"Joueur "<< this->id << " : "<< endl; 
-  
+  cout<<"Joueur "<< this->position << " : "<< endl; 
 }
 
 bool Joueur::get_jail() //renvoi l'état du joueur (jailed)
@@ -66,4 +71,12 @@ void Joueur::add_fortune(int montant) //ajoute ou retire un montant au joueur
 int Joueur::get_id() //renvoi l'id du joueur  
 {
   return this->id;
+}
+
+int Joueur::get_position(){
+  return this->position;
+}
+
+void Joueur::set_position(int pos){
+  this->position = pos;
 }
