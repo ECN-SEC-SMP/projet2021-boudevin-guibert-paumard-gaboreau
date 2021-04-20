@@ -8,12 +8,9 @@
 #include "Partie.h"
 #include "Plateau.h"
 #include "Prison.h"
-#include <time.h>       /* time */ //for random
 
 int main() {
-  // generate random seed for Dice
-  srand (time(NULL));
-
+ 
     Partie *p = new Partie();
 
     Joueur *j1 = new Joueur("Louis");
