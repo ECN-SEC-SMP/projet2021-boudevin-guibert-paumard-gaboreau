@@ -24,4 +24,7 @@ int main() {
     p->ajouter_joueurs(j4);
 
     p->demarrer_partie();
+
+    exit(0);
+
 }
