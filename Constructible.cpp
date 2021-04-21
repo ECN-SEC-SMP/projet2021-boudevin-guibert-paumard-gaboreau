@@ -96,12 +96,8 @@ return 1 si un logement à été ajouté, 0 sinon
 //todo : modifier la méthode pour quelle ne fasse que le payement de loyer et l'achat des maisons/hotel
 void Constructible::action(Joueur *cible) //acheter case, acheter logement, payer loyer
 {
-    if(this ->proprietaire == nullptr) //si pas de proprio, on essaie d'acheter
-    {
-    if(cible->get_fortune() >= get_loyer() && this ->proprietaire == nullptr)
-    this->proprietaire = cible; //si le joueur à assez d'argent, il achète la case
-    }
-    else if(this -> proprietaire == cible) //si le joueur tombe sur une de ces propriétés, il tente d'acheter un logement
+
+    if(this -> proprietaire == cible) //si le joueur tombe sur une de ces propriétés, il tente d'acheter un logement
     {
         add_logements();
     }
