@@ -7,9 +7,9 @@ Depart::Depart (){
     this->proprietaire = nullptr;
 };
 
-ostream& operator<<(ostream& out,Depart const& dep){
-    //dep.print(out);
-    return out;
+ostream& operator<<(ostream& s,Depart const& dep){
+    s <<  "Départ/n";
+    return s;
 }
 
 int Depart::get_loyer()const {return (0);};

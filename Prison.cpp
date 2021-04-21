@@ -3,8 +3,13 @@ using namespace std;
 #include "Prison.h"
 #include "Joueur.h"
 
-Prison::Prison (){
+Prison::Prison(){
   this->proprietaire = nullptr;
+};
+
+ostream& operator<<(ostream&s, Prison const &prison){
+  s <<  "CASE PRISON/n";
+  return s;
 };
 
 ostream& operator<<(ostream& out,Prison const& prison){

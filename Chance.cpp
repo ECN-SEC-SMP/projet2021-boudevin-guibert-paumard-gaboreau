@@ -4,6 +4,11 @@ using namespace std;
 #include "Joueur.h"
 #include <time.h>       /* time */ //for random
 
+ostream& operator<<(ostream& s, Chance const &c){
+  s <<  "CASE CHANCE/n";
+  return s;
+};
+
 // constructeur de Case chance
 Chance::Chance (){
   this->proprietaire = nullptr;
