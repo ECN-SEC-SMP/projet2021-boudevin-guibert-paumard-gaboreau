@@ -48,7 +48,7 @@ void Joueur::affiche_position() const //affiche la position du joueur
   cout<<"Joueur "<< this->position << " : "<< endl; 
 }
 
-bool Joueur::get_jail() //renvoi l'état du joueur (jailed)
+bool Joueur::get_jail() const//renvoi l'état du joueur (jailed)
 {
   return (this->jailed);
 }
@@ -58,7 +58,7 @@ void Joueur::set_jail() //met jailed à vrai si faux et faux si vrai
   this->jailed = !(this->jailed);
 }
 
-int Joueur::get_fortune() //renvoi la fortune du joueur
+int Joueur::get_fortune() const//renvoi la fortune du joueur
 {
   return this->fortune;
 }
@@ -68,12 +68,12 @@ void Joueur::add_fortune(int montant) //ajoute ou retire un montant au joueur
   this->fortune = this->fortune + montant;
 }
 
-int Joueur::get_id() //renvoi l'id du joueur  
+int Joueur::get_id() const//renvoi l'id du joueur  
 {
   return this->id;
 }
 
-int Joueur::get_position(){
+int Joueur::get_position() const{
   return this->position;
 }
 

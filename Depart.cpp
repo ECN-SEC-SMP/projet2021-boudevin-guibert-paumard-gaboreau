@@ -3,13 +3,17 @@ using namespace std;
 #include "Depart.h"
 #include "Joueur.h"
 
-Depart::Depart (){};
-void Depart::afficher_case() {
-cout << "CASE DEPART" << endl;
-
+Depart::Depart (){
+    this->proprietaire = nullptr;
 };
-int Depart::get_loyer(){return (0);};
-Joueur* Depart::get_proprietaire() { return(nullptr);};
+
+ostream& operator<<(ostream& out,Depart const& dep){
+    //dep.print(out);
+    return out;
+}
+
+int Depart::get_loyer()const {return (0);};
+Joueur* Depart::get_proprietaire() const{ return(nullptr);};
 
 void Depart::action(Joueur *j){
 

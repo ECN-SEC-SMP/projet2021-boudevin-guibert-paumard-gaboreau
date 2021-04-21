@@ -6,57 +6,10 @@ using namespace std;
 #include <vector>       // std::vector
 #include <iterator>
 
-void Constructible::afficher_case() {
-  // création du vecteur
-  vector<string> vs;
-  
-  // on ajoute le nom de la case
-  vs.push_back(this->nom);
-
-  //on ajoute le coût
-  vs.push_back ("(coût : "+ to_string( this->prix_const)+")");
-  
- // test si pas de propriétaire
- if(this->proprietaire == nullptr){
-
-  vs.push_back("- sans propriétaire");
-
- }
- // si il y a un propriétaire
- else{
-  
-  vs.push_back("propriétaire :");
-  vs.push_back(this->proprietaire->nom);
-
-  // si le terrain comporte une ou des maisons
-  if(this->nb_maison != 0){
-  vs.push_back(to_string(this->nb_maison));
-    // si une seule maison
-    if(this->nb_maison == 1){ vs.push_back("maison,"); }
-    // si plusieurs maisons
-    else{vs.push_back("maisons,");}
-  }
-
-    // si le terrain comporte un ou des hotels
-  if(this->nb_hotel != 0){
-  vs.push_back(to_string(this->nb_hotel));
-    // si un seul hotel
-    if(this->nb_hotel == 1){ vs.push_back("hotel,"); }
-    // si plusieurs hotels
-    else{vs.push_back("hotels,");}
-  }
-
-  //affichage loyer
-  vs.push_back("loyer =");
-  vs.push_back(to_string(this->loyer));
- }
-
-
-  copy(vs.begin(),vs.end(),ostream_iterator<string>(cout," "));
-  cout << endl;
-
-};
-
+ostream& operator<<(ostream& out,Constructible const& const){
+    //dep.print(out);
+    return out;
+}
 
 int Constructible::get_nb_maison() const
 {
@@ -111,17 +64,17 @@ void Constructible::action(Joueur *cible) //acheter case, acheter logement, paye
         this ->proprietaire->add_fortune(get_loyer());
     }
 }
-Joueur *Constructible::get_proprietaire()
+Joueur *Constructible::get_proprietaire() const
 {
     return this->proprietaire;
 }
 
-int Constructible::get_loyer()
+int Constructible::get_loyer() const
 {
     return(500+500*this->nb_maison + 2500*nb_hotel);
 }
 
-int Constructible::get_prix()
+int Constructible::get_prix() const
 {
     return this->prix_const;
 }

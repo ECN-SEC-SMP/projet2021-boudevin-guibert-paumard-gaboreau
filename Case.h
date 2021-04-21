@@ -14,14 +14,14 @@ class Case{
 
         int id_case;
         string nom;
-        Joueur* proprietaire = nullptr;
+        Joueur* proprietaire;
 
     public:
 
         virtual void action(Joueur *cible) = 0;
-        virtual void afficher_case() = 0;
-        virtual int get_loyer() = 0;
-        virtual Joueur* get_proprietaire() = 0;
+        virtual ostream& operator<<(ostream&s) = 0;
+        virtual int get_loyer() const = 0;
+        virtual Joueur* get_proprietaire() const = 0;
 
 };
 

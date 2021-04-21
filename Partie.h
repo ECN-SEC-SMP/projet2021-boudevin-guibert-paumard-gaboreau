@@ -27,7 +27,7 @@ class Partie{
 
     public:
 
-        Joueur* get_joueur_actuel(); //renvoie le joueur actuel
+        Joueur* get_joueur_actuel() const; //renvoie le joueur actuel
         bool ajouter_joueurs(Joueur *j); //retourne vrai si l'ajout s'est correctement déroulé
         void demarrer_partie(); //initialise la partie et la joue en boucle
         Partie();

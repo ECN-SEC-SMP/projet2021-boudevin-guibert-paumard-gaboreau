@@ -20,7 +20,7 @@ using namespace std;
 void Plateau::affichage_plateau() const{
   for(Case* c : this->plateau_de_jeu)
   {
-    c->afficher_case();
+    //c->afficher_case();
   }
 };
 

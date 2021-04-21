@@ -14,13 +14,17 @@ class Gares : public Achetable
 
     public: 
 
-        int get_id_gare() const;
-        virtual void action(Joueur *cible) override ; 
         Gares(int idgare, int prix, string nom_const);
-        virtual void afficher_case() override;
-        virtual int get_loyer() override;
-        virtual Joueur* get_proprietaire() override;
-        virtual int get_prix() override;
+        int get_id_gare() const;
+        virtual void action(Joueur *j) override ; //Chance hérite de sa propre classe action
+        virtual int get_loyer() const override; // méthode vide
+        virtual Joueur* get_proprietaire() const override;
+        virtual int get_prix() const override;
+        virtual ostream& operator<<(ostream&s) override;
+        virtual void acheter(Joueur *cible) override;
+        virtual string get_nom() const override;
+        virtual bool is_available() const override;
+        
 };
 
 #endif

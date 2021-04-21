@@ -54,11 +54,11 @@ bool Partie::tour_de_jeu() // joue le tour
     //Avancer le joueur 
     this->avance(score_des);
 
-    //Affiche la case d'arrivee
-    this->Plat->get_plateau_de_jeu()[this->joueur_actuel->get_position()]->afficher_case();
-
     //Lancer la case et l'action
     this->Plat->get_plateau_de_jeu()[this->joueur_actuel->get_position()]->action(this->joueur_actuel);
+
+    //Affiche la case d'arrivee
+    //this->Plat->get_plateau_de_jeu()[this->joueur_actuel->get_position()]->afficher_case();
 
     //Vérifier la fortune du joueur -> supprimer liste des joueurs
     if(this->joueur_actuel->get_fortune() < 0){
@@ -83,7 +83,7 @@ bool Partie::tour_de_jeu() // joue le tour
   }
 }
 
-Joueur* Partie::get_joueur_actuel() //renvoie le joueur actuel
+Joueur* Partie::get_joueur_actuel() const //renvoie le joueur actuel
 {
   return this->joueur_actuel;
 }

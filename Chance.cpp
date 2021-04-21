@@ -5,14 +5,13 @@ using namespace std;
 #include <time.h>       /* time */ //for random
 
 // constructeur de Case chance
-Chance::Chance (){};
-void Chance::afficher_case() {
-  cout << "CASE CHANCE/n" << endl;
+Chance::Chance (){
+  this->proprietaire = nullptr;
 };
 
-int Chance::get_loyer(){return (0);};
+int Chance::get_loyer() const{return (0);};
 
-Joueur* Chance::get_proprietaire() { return(nullptr);};
+Joueur* Chance::get_proprietaire() const{ return(nullptr);};
 
 void Chance::action(Joueur *j){
 

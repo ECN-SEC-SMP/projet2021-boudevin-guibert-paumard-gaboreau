@@ -11,10 +11,10 @@ class Depart : public Case
     Depart();
   
     virtual void action(Joueur *j) override ; //Chance hérite de sa propre classe action
-    virtual void afficher_case() override; //méthode vide 
-    virtual int get_loyer() override; // méthode vide
-    virtual Joueur* get_proprietaire() override;
-
+    virtual int get_loyer() const override; // méthode vide
+    virtual Joueur* get_proprietaire() const override;
+    virtual ostream& operator<<(ostream&s) override;
+    
 };
 
 #endif

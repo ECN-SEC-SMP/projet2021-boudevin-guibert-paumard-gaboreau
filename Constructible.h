@@ -16,16 +16,19 @@ class Constructible : public Achetable
 
     public: 
 
+        Constructible(int price,string nom_const);
+        virtual void acheter(Joueur *cible) override;
+        virtual void action(Joueur *cible) override;
+        virtual Joueur* get_proprietaire() const override;
+        virtual int get_loyer() const override;
+        virtual int get_prix() const override;
         int get_nb_maison() const;
         int get_nb_hotel() const;
         bool add_logements(void);
-        virtual void action(Joueur *cible) override;
-        virtual Joueur* get_proprietaire() override;
-        virtual void afficher_case() override;
-        virtual int get_loyer() override;
-        virtual int get_prix() override;
-        Constructible(int price,string nom_const);
-        void acheter(Joueur *cible);
+        virtual string get_nom() const override;
+        virtual bool is_available() const override;
+        virtual ostream& operator<<(ostream&s) override;
+
 };
 
 #endif

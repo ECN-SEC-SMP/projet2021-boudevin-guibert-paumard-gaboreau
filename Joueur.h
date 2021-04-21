@@ -28,12 +28,12 @@ class Joueur{
         int get_nb_gares() const; //récupère le nombre de gares possédés par un joueur
         void add_gare(); //ajouter une gare au joueur
         void affiche_position() const; //affiche la position du joueur
-        bool get_jail(); //renvoi l'état du joueur (jailed)
+        bool get_jail() const; //renvoi l'état du joueur (jailed)
         void set_jail(); //met jailed à vrai
-        int get_fortune(); //renvoi la fortune du joueur
+        int get_fortune() const; //renvoi la fortune du joueur
         void add_fortune(int montant); //ajoute ou retire un montant au joueur     
-        int get_id(); //renvoi l'id du joueur  
-        int get_position();  
+        int get_id() const; //renvoi l'id du joueur  
+        int get_position() const;  
         void set_position(int pos);
 
 };
