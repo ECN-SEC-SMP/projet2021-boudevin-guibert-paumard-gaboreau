@@ -58,7 +58,7 @@ bool Partie::tour_de_jeu() // joue le tour
     this->Plat->get_plateau_de_jeu()[this->joueur_actuel->get_position()]->action(this->joueur_actuel);
 
     //Affiche la case d'arrivee
-    //this->Plat->get_plateau_de_jeu()[this->joueur_actuel->get_position()]->afficher_case();
+    cout << this->joueur_actuel->get_position() << endl;
 
     //Vérifier la fortune du joueur -> supprimer liste des joueurs
     if(this->joueur_actuel->get_fortune() < 0){

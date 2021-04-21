@@ -144,3 +144,7 @@ bool Constructible::is_available() const//renvoie 1 si il y a un proprio, 0 sino
     else
     return 1;
 }
+
+string Constructible::get_nom() const{
+    return this->nom;
+};

@@ -96,3 +96,7 @@ bool Gares::is_available() const //renvoie 1 si il y a un proprio, 0 sinon
     else
     return 1;
 }
+
+string Gares::get_nom() const{
+    return this->nom;
+};

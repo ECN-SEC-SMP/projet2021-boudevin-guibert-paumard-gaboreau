@@ -7,15 +7,10 @@ Prison::Prison(){
   this->proprietaire = nullptr;
 };
 
-ostream& operator<<(ostream&s, Prison const &prison){
+ostream& operator<<(ostream& s, Prison const &prison){
   s <<  "CASE PRISON/n";
   return s;
 };
-
-ostream& operator<<(ostream& out,Prison const& prison){
-    //dep.print(out);
-    return out;
-}
 
 int Prison::get_loyer() const{return (0);};
 
