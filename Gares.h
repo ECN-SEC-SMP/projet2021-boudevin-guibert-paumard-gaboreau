@@ -10,11 +10,13 @@ class Gares : public Achetable
     protected:
 
         int id_gare;
-        int prix_const;
+        int prix = 2500;
+        int loyer = 1000;
 
     public: 
 
         Gares(int idgare, int prix, string nom_const);
+
         int get_id_gare() const;
         virtual void action(Joueur *j) override ; //Chance hérite de sa propre classe action
         virtual int get_loyer() const override; // méthode vide

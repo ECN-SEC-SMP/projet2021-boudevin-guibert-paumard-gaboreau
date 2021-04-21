@@ -11,11 +11,11 @@ ostream& operator<<(ostream& out,Constructible const& const){
     return out;
 }
 
-int Constructible::get_nb_maison() const
+int Constructible::get_nb_maison() const //retourne le nombre de maison sur la case
 {
     return this->nb_maison;
 }
-int Constructible::get_nb_hotel() const
+int Constructible::get_nb_hotel() const //retourne le nombre d'hôtels sur la case
 {
     return this->nb_hotel;
 }
@@ -46,15 +46,11 @@ return 1 si un logement à été ajouté, 0 sinon
     
     return 0;
 }
-
+//todo : modifier la méthode pour quelle ne fasse que le payement de loyer et l'achat des maisons/hotel
 void Constructible::action(Joueur *cible) //acheter case, acheter logement, payer loyer
 {
-    if(this ->proprietaire == nullptr) //si pas de proprio, on essaie d'acheter
-    {
-    if(cible->get_fortune() >= get_loyer() && this ->proprietaire == nullptr)
-    this->proprietaire = cible; //si le joueur à assez d'argent, il achète la case
-    }
-    else if(this -> proprietaire == cible) //si le joueur tombe sur une de ces propriétés, il tente d'acheter un logement
+
+    if(this -> proprietaire == cible) //si le joueur tombe sur une de ces propriétés, il tente d'acheter un logement
     {
         add_logements();
     }
@@ -64,6 +60,7 @@ void Constructible::action(Joueur *cible) //acheter case, acheter logement, paye
         this ->proprietaire->add_fortune(get_loyer());
     }
 }
+
 Joueur *Constructible::get_proprietaire() const
 {
     return this->proprietaire;
@@ -71,24 +68,33 @@ Joueur *Constructible::get_proprietaire() const
 
 int Constructible::get_loyer() const
 {
-    return(500+500*this->nb_maison + 2500*nb_hotel);
+    return((this ->loyer)+(this -> loyer)*this->nb_maison + (this->prix)*nb_hotel)*2;
 }
 
 int Constructible::get_prix() const
 {
-    return this->prix_const;
+    return this->prix;
 }
 
 
 Constructible::Constructible(int price,string nom_const)
 {
-    this->prix_const = price;
+    this->prix = price;
     this->nom = nom_const;
 
 }
 
-void Constructible::acheter(Joueur *cible)
+void Constructible::acheter(Joueur *cible) 
 {
     cible ->add_fortune(-1*(this ->get_prix()));
     this-> proprietaire = cible;
+}
+
+
+bool Constructible::is_available() const//renvoie 1 si il y a un proprio, 0 sinon
+{
+    if(this ->get_proprietaire() == nullptr)
+    return 0;
+    else
+    return 1;
 }

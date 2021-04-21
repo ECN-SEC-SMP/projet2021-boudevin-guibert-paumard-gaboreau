@@ -29,6 +29,7 @@ class Achetable : public Case
         virtual int get_prix() const = 0;
         virtual string get_nom() const = 0;
         virtual bool is_available() const = 0;
+
 };
 
 #endif
