@@ -7,17 +7,10 @@ Depart::Depart (){
     this->proprietaire = nullptr;
 };
 
-ostream& operator<<(ostream& s,Depart const& dep){
-    s <<  "Départ/n";
-    return s;
-}
-
 int Depart::get_loyer()const {return (0);};
 Joueur* Depart::get_proprietaire() const{ return(nullptr);};
 
 void Depart::action(Joueur *j){
-
-// le joueur tombe sur la case Chance il récupère 15000€
-j->add_fortune(15000);
-
+    // le joueur tombe sur la case Chance il récupère 15000€
+    j->add_fortune(15000);
 };

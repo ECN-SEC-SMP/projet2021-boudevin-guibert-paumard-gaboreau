@@ -6,57 +6,6 @@ using namespace std;
 #include <vector>       // std::vector
 #include <iterator>
 
-ostream& operator<<(ostream& s,Constructible const& constr){
-
-    // création du vecteur
-    // on ajoute le nom de la case
-    string vs ;
-    
-    vs += constr.get_nom();
-
-    //on ajoute le coût
-    vs += "(coût : "+ to_string( constr.get_prix())+")";
-    
-    // test si pas de propriétaire
-    if(constr.get_proprietaire() == nullptr){
-
-    vs += "- sans propriétaire";
-
-    }
-    // si il y a un propriétaire
-    else{
-    
-    vs += "propriétaire :";
-    vs += constr.get_proprietaire()->nom;
-
-    // si le terrain comporte une ou des maisons
-    if(constr.get_nb_maison() != 0){
-    vs += to_string(constr.get_nb_maison());
-        // si une seule maison
-        if(constr.get_nb_maison() == 1){ vs += "maison,"; }
-        // si plusieurs maisons
-        else{vs += "maisons,";}
-    }
-
-        // si le terrain comporte un ou des hotels
-    if(constr.get_nb_hotel() != 0){
-    vs += to_string(constr.get_nb_hotel());
-        // si un seul hotel
-        if(constr.get_nb_hotel() == 1){ vs += "hotel,"; }
-        // si plusieurs hotels
-        else{vs += "hotels,";}
-    }
-
-    //affichage loyer
-    vs += "loyer =";
-    vs += to_string(constr.get_loyer());
-    }
-
-    s <<  vs;
-
-    return s;
-}
-
 int Constructible::get_nb_maison() const //retourne le nombre de maison sur la case
 {
     return this->nb_maison;
@@ -127,7 +76,9 @@ Constructible::Constructible(int price,string nom_const)
 {
     this->prix = price;
     this->nom = nom_const;
-
+    this->proprietaire = nullptr;
+    this->nb_hotel = 0;
+    this->nb_maison = 0;
 }
 
 void Constructible::acheter(Joueur *cible) 

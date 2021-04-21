@@ -5,11 +5,7 @@ using namespace std;
 
 Prison::Prison(){
   this->proprietaire = nullptr;
-};
-
-ostream& operator<<(ostream& s, Prison const &prison){
-  s <<  "CASE PRISON/n";
-  return s;
+  this->nom = "";
 };
 
 int Prison::get_loyer() const{return (0);};

@@ -5,40 +5,6 @@
 #include <vector>       // std::vector
 #include <iterator>
 
-ostream& operator<<(ostream& s,Gares const& gare){
-
-    // création du vecteur
-    string vs;
-    
-    // on ajoute le nom de la case
-    vs += gare.get_nom();
-
-    //on ajoute le coût
-    vs += ("(coût : "+ to_string( gare.get_prix())+")");
-    
-    // test si pas de propriétaire
-    if(gare.get_proprietaire() == nullptr){
-
-    vs += "- sans propriétaire";
-
-    }
-    // si il y a un propriétaire
-    else{
-    
-    vs += "propriétaire :";
-    vs += gare.get_proprietaire()->nom;
-
-
-    //affichage loyer
-    vs += "loyer =";
-    vs += to_string(gare.get_loyer());
-    }
-
-    s <<  vs;
-
-    return s;
-}
-
 int Gares::get_id_gare() const //renvoie ne numéro d'identifiant de la gare
 {
     return this->id_gare;
@@ -65,6 +31,7 @@ Gares::Gares(int idgare, int prix_gare, string nom_const)
     this->id_gare = idgare;
     this->prix = prix_gare;
     this->nom = nom_const;
+    this->proprietaire = nullptr;
 }
 
 int Gares::get_loyer() const //retourne le loyer que doit payer un joueur en fonction du nombre de gare possédé

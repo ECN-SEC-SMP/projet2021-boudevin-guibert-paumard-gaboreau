@@ -10,18 +10,21 @@ using namespace std;
 
 class Case{ 
 
-    protected:
+    friend ostream& operator<<(std::ostream &os, Case const& o) {
+        return o.do_print(os);
+    }
 
-        int id_case;
+    protected:
+    
         string nom;
         Joueur* proprietaire;
 
     public:
 
         virtual void action(Joueur *cible) = 0;
-        virtual ostream& operator<<(ostream&s) = 0;
         virtual int get_loyer() const = 0;
         virtual Joueur* get_proprietaire() const = 0;
+        virtual ostream & do_print(std::ostream& c) const = 0;
 
 };
 
