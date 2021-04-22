@@ -4,6 +4,11 @@ using namespace std;
 
 #include "Constructible.h"
 
+string Constructible::get_nom() const{
+    return this->nom;
+};
+
+
 int Constructible::get_nb_maison() const //retourne le nombre de maison sur la case
 {
     return this->nb_maison;
