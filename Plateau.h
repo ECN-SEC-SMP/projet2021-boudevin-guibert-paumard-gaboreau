@@ -4,10 +4,11 @@
 #include <iostream>
 #include <stdio.h>      /* printf, scanf, puts, NULL */
 #include <algorithm> 
-#include <vector>
+#include <vector>       // std::vector
 
 using namespace std;
 
+#include "Joueur.h"
 #include "Case.h"
 #include "Achetable.h"
 #include "Gares.h"
@@ -15,8 +16,6 @@ using namespace std;
 #include "Chance.h"
 #include "Constructible.h"
 #include "Depart.h"
-#include "Plateau.h"
-#include "Joueur.h"
 
 class Plateau{ 
 

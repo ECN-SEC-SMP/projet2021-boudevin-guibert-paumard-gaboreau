@@ -6,16 +6,13 @@
 
 class Gares : public Achetable
 {
-
     protected:
 
-        int id_gare;
-        int prix;
         int loyer = 1000;
 
     public: 
 
-        Gares(int idgare, int prix, string nom_const);
+        Gares(int prix, string nom_const);
 
         int get_id_gare() const;
         virtual void action(Joueur *j) override ; //Chance hérite de sa propre classe action
@@ -26,7 +23,6 @@ class Gares : public Achetable
         virtual string get_nom() const override;
         virtual bool is_available() const override;
         
-
         std::ostream & do_print(std::ostream & c) const override{
             // création du vecteur
             string vs;

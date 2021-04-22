@@ -5,6 +5,7 @@ using namespace std;
 
 Depart::Depart (){
     this->proprietaire = nullptr;
+    this->nom = "Case départ";
 };
 
 int Depart::get_loyer()const {return (0);};

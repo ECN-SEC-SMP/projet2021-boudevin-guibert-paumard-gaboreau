@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <stdio.h>
-#include <algorithm> 
 #include <string>
 
 using namespace std;
@@ -16,7 +15,6 @@ class Achetable : public Case
 
     protected:
 
-        Joueur *proprietaire;
         int prix;
         int loyer;
 

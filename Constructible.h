@@ -12,7 +12,6 @@ class Constructible : public Achetable
         int nb_maison;
         int nb_hotel;
         int loyer = 500;
-        int prix;
 
     public: 
 

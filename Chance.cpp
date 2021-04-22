@@ -1,12 +1,14 @@
 #include <iostream>
+#include <time.h>       /* time */ //for random
+
 using namespace std;
 #include "Chance.h"
 #include "Joueur.h"
-#include <time.h>       /* time */ //for random
 
 // constructeur de Case chance
 Chance::Chance (){
   this->proprietaire = nullptr;
+  this->nom = "Case chance";
 };
 
 int Chance::get_loyer() const{return (0);};

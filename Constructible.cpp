@@ -4,18 +4,10 @@ using namespace std;
 
 #include "Constructible.h"
 
-string Constructible::get_nom() const{
-    return this->nom;
-};
-
-
-int Constructible::get_nb_maison() const //retourne le nombre de maison sur la case
+Constructible::Constructible(int price,string nom_const)
 {
-    return this->nb_maison;
-}
-int Constructible::get_nb_hotel() const //retourne le nombre d'hôtels sur la case
-{
-    return this->nb_hotel;
+    this->prix = price;
+    this->nom = nom_const;
 }
 
 /* on achète d'abord les maison, une fois la limite des 4 maison
@@ -59,9 +51,15 @@ void Constructible::action(Joueur *cible) //acheter case, acheter logement, paye
     }
 }
 
-Joueur *Constructible::get_proprietaire() const //renvoie un pointeur vers le propriétaire, renvoie nullptn si celui ci n'exiset pas
+void Constructible::acheter(Joueur *cible) 
 {
-    return this->proprietaire;
+    cible ->add_fortune(-this ->get_prix());
+    this-> proprietaire = cible;
+}
+
+bool Constructible::is_available() const //renvoie 1 si il y a un proprio, 0 sinon
+{
+    return this->get_proprietaire() == nullptr;
 }
 
 int Constructible::get_loyer() const //le loyer est calculé en fonction du nombre de maisons et du nombre d'hotel sur la case
@@ -69,27 +67,25 @@ int Constructible::get_loyer() const //le loyer est calculé en fonction du nomb
     return((this ->loyer)+(this -> loyer)*this->nb_maison + (this->prix)*nb_hotel)*2;
 }
 
+Joueur *Constructible::get_proprietaire() const //renvoie un pointeur vers le propriétaire, renvoie nullptn si celui ci n'exiset pas
+{
+    return this->proprietaire;
+}
+
 int Constructible::get_prix() const//renvoie le prix de la case
 {
     return this->prix;
 }
 
+string Constructible::get_nom() const{
+    return this->nom;
+};
 
-Constructible::Constructible(int price,string nom_const)
+int Constructible::get_nb_maison() const //retourne le nombre de maison sur la case
 {
-    this->prix = price;
-    this->nom = nom_const;
-
+    return this->nb_maison;
 }
-
-void Constructible::acheter(Joueur *cible) 
+int Constructible::get_nb_hotel() const //retourne le nombre d'hôtels sur la case
 {
-    cible ->add_fortune(-1*(this ->get_prix()));
-    this-> proprietaire = cible;
-}
-
-
-bool Constructible :: is_available() const //renvoie 1 si il y a un proprio, 0 sinon
-{
-    return this->get_proprietaire() == nullptr;
+    return this->nb_hotel;
 }

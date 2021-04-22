@@ -2,7 +2,6 @@
 #include <stdio.h>      /* printf, scanf, puts, NULL */
 #include <algorithm> 
 #include <vector>       // std::vector
-#include <iterator>
 
 using namespace std;
 
@@ -16,26 +15,9 @@ using namespace std;
 #include "Constructible.h"
 #include "Gares.h"
 
-
-void Plateau::affichage_plateau() const{
-  for(Case* c : this->plateau_de_jeu)
-  {
-    //c->afficher_case();
-  }
-};
-
-int Plateau::nbGares(Joueur* j) const{
-  int nb_gares = 0;
-
-  for(Case* c : this->plateau_de_jeu)
-  {
-    if(c->get_proprietaire() != nullptr && c->get_proprietaire()->get_id() == j->get_id()){
-      nb_gares++;
-    }
-  }
-
-  return nb_gares;
-
+//constructeur
+Plateau::Plateau(){
+  this->plateau_de_jeu.clear();
 };
 
 void Plateau::initPlateau(){
@@ -46,14 +28,14 @@ void Plateau::initPlateau(){
   vec_cases.push_back(new Chance());
   vec_cases.push_back(new Constructible(200,"Rue Foch"));
   vec_cases.push_back(new Constructible(10, "Rue de la liberté"));
-  vec_cases.push_back(new Gares(1,20000,"Gare de Nantes"));
+  vec_cases.push_back(new Gares(20000,"Gare de Nantes"));
   vec_cases.push_back(new Constructible(20000,"Allée du saucisson"));
   vec_cases.push_back(new Chance());
   vec_cases.push_back(new Constructible(20000, "Ora ora street"));
   vec_cases.push_back(new Constructible(20000, "Bankai avenue"));
   vec_cases.push_back(new Prison());
   vec_cases.push_back(new Constructible(20000,"Hameau Marie Curie"));
-  vec_cases.push_back(new Gares(2,20000,"Gare de Larry la Chance"));
+  vec_cases.push_back(new Gares(20000,"Gare de Larry la Chance"));
   vec_cases.push_back(new Constructible(20000,"Place de Centrale"));
   vec_cases.push_back(new Chance());
   vec_cases.push_back(new Constructible(20000,"Place du king kong"));
@@ -64,7 +46,7 @@ void Plateau::initPlateau(){
   vec_cases.push_back(new Constructible(20000,"Impasse des Partous"));
   vec_cases.push_back(new Constructible(20000, "Place de la KOUIZINE"));
   vec_cases.push_back(new Constructible(20000, "Maison de mezuzah"));
-  vec_cases.push_back(new Gares(3,20000, "Gare age a velos"));
+  vec_cases.push_back(new Gares(20000, "Gare age a velos"));
   vec_cases.push_back(new Chance());
   vec_cases.push_back(new Constructible(20000,"Immeuble de la soirée zéro"));
   vec_cases.push_back(new Constructible(20000, "Avenue en construction"));
@@ -75,7 +57,7 @@ void Plateau::initPlateau(){
   vec_cases.push_back(new Constructible(20000, "Immeuble de Sam"));
   vec_cases.push_back(new Chance());
   vec_cases.push_back(new Constructible(20000,"Hameau de la torture"));
-  vec_cases.push_back(new Gares(4,20000,"Gare de Brest"));
+  vec_cases.push_back(new Gares(20000,"Gare de Brest"));
   vec_cases.push_back(new Chance());
   vec_cases.push_back(new Prison());
   vec_cases.push_back(new Constructible(20000,"Route bonne ou mauvaise situations"));
@@ -89,11 +71,26 @@ void Plateau::initPlateau(){
 
 };
 
-vector<Case *> Plateau::get_plateau_de_jeu(){
-  return this->plateau_de_jeu;
+void Plateau::affichage_plateau() const{
+  cout << "Différentes cases du terrain : " << endl;
+  for(Case* c : this->plateau_de_jeu)
+  {
+    cout << *c << endl;
+  }
 };
 
-//constructeur
-Plateau::Plateau(){
-  this->plateau_de_jeu.clear();
+int Plateau::nbGares(Joueur* j) const{
+  int nb_gares = 0;
+
+  for(Case* c : this->plateau_de_jeu)
+  {
+    if(c->get_proprietaire() != nullptr && c->get_proprietaire()->get_id() == j->get_id()){
+      nb_gares++;
+    }
+  }
+  return nb_gares;
+};
+
+vector<Case *> Plateau::get_plateau_de_jeu(){
+  return this->plateau_de_jeu;
 };

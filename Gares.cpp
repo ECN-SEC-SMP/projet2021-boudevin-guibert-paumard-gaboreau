@@ -6,9 +6,8 @@ using namespace std;
 #include "Joueur.h"
 #include "Gares.h"
 
-Gares::Gares(int idgare, int prix_gare, string nom_const)
+Gares::Gares(int prix_gare, string nom_const)
 {
-    this->id_gare = idgare;
     this->prix = prix_gare;
     this->nom = nom_const;
     this->proprietaire = nullptr;
@@ -55,9 +54,4 @@ Joueur *Gares::get_proprietaire() const
 int Gares::get_prix() const
 {
     return this->prix;
-}
-
-int Gares::get_id_gare() const //renvoie ne numéro d'identifiant de la gare
-{
-    return this->id_gare;
 }

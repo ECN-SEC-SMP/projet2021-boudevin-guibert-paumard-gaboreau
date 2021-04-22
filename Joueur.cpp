@@ -8,7 +8,6 @@ Joueur::Joueur(string name) //constructeur
 {
   this->id = current_id_to_give;
   current_id_to_give++;
-  this->fortune = 100000;
   this->position = 0;
   this->nom = name;
   this->jailed = false;
@@ -33,9 +32,16 @@ void Joueur::add_gare() //ajouter une gare au joueur
   this->nb_gares =  (this->nb_gares + 1) ;
 }
 
-void Joueur::affiche_position() const //affiche la position du joueur
-{
-  cout<<"Joueur "<< this->position << " : "<< endl; 
+void Joueur::afficher_joueur() const{
+  cout << "Nom : " << this->get_nom() << endl <<
+  "Fortune : " << this->get_fortune() << endl <<
+  "Position : " << this->get_position() << endl <<
+  "Nombre gares : " << this->get_nb_gares() << endl <<
+  "En prise : " << this->get_jail() << endl;
+}
+
+string Joueur::get_nom() const{
+  return this->nom;
 }
 
 bool Joueur::get_jail() const//renvoi l'état du joueur (jailed)
