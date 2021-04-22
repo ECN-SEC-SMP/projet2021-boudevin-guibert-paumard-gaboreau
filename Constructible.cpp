@@ -1,62 +1,8 @@
-#include "Constructible.h"
 #include <string>
-using namespace std;
 #include <iostream>     // std::cout
-#include <algorithm>    // std::replace
-#include <vector>       // std::vector
-#include <iterator>
+using namespace std;
 
-void Constructible::afficher_case() {
-  // création du vecteur
-  vector<string> vs;
-  
-  // on ajoute le nom de la case
-  vs.push_back(this->nom);
-
-  //on ajoute le coût
-  vs.push_back ("(coût : "+ to_string( this->prix)+")");
-  
- // test si pas de propriétaire
- if(this->proprietaire == nullptr){
-
-  vs.push_back("- sans propriétaire");
-
- }
- // si il y a un propriétaire
- else{
-  
-  vs.push_back("propriétaire :");
-  vs.push_back(this->proprietaire->nom);
-
-  // si le terrain comporte une ou des maisons
-  if(this->nb_maison != 0){
-  vs.push_back(to_string(this->nb_maison));
-    // si une seule maison
-    if(this->nb_maison == 1){ vs.push_back("maison,"); }
-    // si plusieurs maisons
-    else{vs.push_back("maisons,");}
-  }
-
-    // si le terrain comporte un ou des hotels
-  if(this->nb_hotel != 0){
-  vs.push_back(to_string(this->nb_hotel));
-    // si un seul hotel
-    if(this->nb_hotel == 1){ vs.push_back("hotel,"); }
-    // si plusieurs hotels
-    else{vs.push_back("hotels,");}
-  }
-
-  //affichage loyer
-  vs.push_back("loyer =");
-  vs.push_back(to_string(this->loyer));
- }
-
-
-  copy(vs.begin(),vs.end(),ostream_iterator<string>(cout," "));
-  cout << endl;
-
-};
-
+#include "Constructible.h"
 
 int Constructible::get_nb_maison() const //retourne le nombre de maison sur la case
 {
@@ -73,21 +19,20 @@ le prix d'une maison = 0,7*prix de la case
 un hôtel =  le prix de la case
 return 1 si un logement à été ajouté, 0 sinon
 */
-
  bool Constructible::add_logements(void) 
  {
      if(nb_maison <4)
      {
         if(this ->proprietaire->get_fortune() >= this->prix)
-        this -> proprietaire -> add_fortune(-0.7*(this ->prix));
-        nb_maison++;
+            this -> proprietaire -> add_fortune(-0.7*(this ->prix));
+            nb_maison++;
         return 1;
      }
         
     else if(nb_maison == 4)
      {
         if(nb_hotel <0)
-        nb_hotel++;
+            nb_hotel++;
         return 1;
      }
     
@@ -108,18 +53,18 @@ void Constructible::action(Joueur *cible) //acheter case, acheter logement, paye
         cible -> paiement(this ->get_loyer(),this ->  proprietaire);
     }
 }
-}
+
 Joueur *Constructible::get_proprietaire() const //renvoie un pointeur vers le propriétaire, renvoie nullptn si celui ci n'exiset pas
 {
     return this->proprietaire;
 }
 
-int Constructible::get_loyer() //le loyer est calculé en fonction du nombre de maisons et du nombre d'hotel sur la case
+int Constructible::get_loyer() const //le loyer est calculé en fonction du nombre de maisons et du nombre d'hotel sur la case
 {
     return((this ->loyer)+(this -> loyer)*this->nb_maison + (this->prix)*nb_hotel)*2;
 }
 
-int Constructible::get_prix() //renvoie le prix de la case
+int Constructible::get_prix() const//renvoie le prix de la case
 {
     return this->prix;
 }
@@ -139,10 +84,7 @@ void Constructible::acheter(Joueur *cible)
 }
 
 
-bool Constructible :: is_available() //renvoie 1 si il y a un proprio, 0 sinon
+bool Constructible :: is_available() const //renvoie 1 si il y a un proprio, 0 sinon
 {
-    if(this ->get_proprietaire() == nullptr)
-    return 0;
-    else
-    return 1;
+    return this->get_proprietaire() == nullptr;
 }
