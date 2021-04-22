@@ -41,35 +41,35 @@ class Constructible : public Achetable
             // test si pas de propriétaire
             if(this->get_proprietaire() == nullptr){
 
-            vs += "- sans propriétaire";
+            vs += " - sans propriétaire";
 
             }
             // si il y a un propriétaire
             else{
             
-            vs += "propriétaire :";
+            vs += " propriétaire :";
             vs += this->get_proprietaire()->nom;
 
             // si le terrain comporte une ou des maisons
             if(this->get_nb_maison() != 0){
             vs += to_string(this->get_nb_maison());
                 // si une seule maison
-                if(this->get_nb_maison() == 1){ vs += "maison,"; }
+                if(this->get_nb_maison() == 1){ vs += " maison,"; }
                 // si plusieurs maisons
-                else{vs += "maisons,";}
+                else{vs += " maisons,";}
             }
 
                 // si le terrain comporte un ou des hotels
             if(this->get_nb_hotel() != 0){
             vs += to_string(this->get_nb_hotel());
                 // si un seul hotel
-                if(this->get_nb_hotel() == 1){ vs += "hotel,"; }
+                if(this->get_nb_hotel() == 1){ vs += " hotel,"; }
                 // si plusieurs hotels
-                else{vs += "hotels,";}
+                else{vs += " hotels,";}
             }
 
             //affichage loyer
-            vs += "loyer =";
+            vs += " loyer =";
             vs += to_string(this->get_loyer());
             }
 

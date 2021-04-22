@@ -36,18 +36,18 @@ class Gares : public Achetable
             // test si pas de propriétaire
             if(this->get_proprietaire() == nullptr){
 
-            vs += "- sans propriétaire";
+            vs += " - sans propriétaire";
 
             }
             // si il y a un propriétaire
             else{
             
-            vs += "propriétaire :";
+            vs += " propriétaire :";
             vs += this->get_proprietaire()->nom;
 
 
             //affichage loyer
-            vs += "loyer =";
+            vs += " loyer =";
             vs += to_string(this->get_loyer());
             }
 

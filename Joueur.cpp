@@ -36,8 +36,8 @@ void Joueur::afficher_joueur() const{
   cout << "Nom : " << this->get_nom() << endl <<
   "Fortune : " << this->get_fortune() << endl <<
   "Position : " << this->get_position() << endl <<
-  "Nombre gares : " << this->get_nb_gares() << endl <<
-  "En prise : " << this->get_jail() << endl;
+  "Nombre gares possédées : " << this->get_nb_gares() << endl <<
+  "En prison : " << this->get_jail() << endl;
 }
 
 string Joueur::get_nom() const{
