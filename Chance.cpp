@@ -21,7 +21,7 @@ void Chance::action(Joueur *j){
     srand (time(NULL));
 
   
-  cout << "Le joueur tire une carte chance/n" << endl;
+  cout << "Le joueur tire une carte chance\n" << endl;
   // le joeur tire aléatoirement une carte parmis 12
   int carte = rand() % 12;
 
