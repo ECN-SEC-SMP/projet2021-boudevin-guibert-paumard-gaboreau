@@ -51,6 +51,14 @@ bool Partie::tour_de_jeu() // joue le tour
     //Lancer le dès
     int score_des = this->lancer_de_des();
 
+    int fortune_actuelle = this->joueur_actuel->get_fortune();
+
+    cout << "Au tour de : " << this->joueur_actuel->nom << endl << 
+    "Fortune :" << fortune_actuelle << endl <<
+    "Position de départ : " << *(this->Plat->get_plateau_de_jeu()[this->joueur_actuel->get_position()]) << endl << 
+    "-------------------" << endl <<
+    "Score du lancé : " << score_des << endl;
+
     //Avancer le joueur 
     this->avance(score_des);
 
@@ -58,7 +66,11 @@ bool Partie::tour_de_jeu() // joue le tour
     this->Plat->get_plateau_de_jeu()[this->joueur_actuel->get_position()]->action(this->joueur_actuel);
 
     //Affiche la case d'arrivee
-    cout << this->joueur_actuel->get_position() << endl;
+    cout << "Nouvelle position : " << *(this->Plat->get_plateau_de_jeu()[this->joueur_actuel->get_position()]) << endl;
+    //Afficher la fortune du joueur si celle-ci a été modifée
+    if(this->joueur_actuel->get_fortune() != fortune_actuelle){
+        cout << "Nouvelle fortune : " << this->joueur_actuel->get_fortune() << endl; 
+    }
 
     //Vérifier la fortune du joueur -> supprimer liste des joueurs
     if(this->joueur_actuel->get_fortune() < 0){

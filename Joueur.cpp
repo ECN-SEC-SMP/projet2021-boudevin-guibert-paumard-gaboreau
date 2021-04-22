@@ -65,7 +65,7 @@ int Joueur::get_fortune() const//renvoi la fortune du joueur
 
 void Joueur::add_fortune(int montant) //ajoute ou retire un montant au joueur      
 {
-  this->fortune = this->fortune + montant;
+  this->fortune += montant;
 }
 
 int Joueur::get_id() const//renvoi l'id du joueur  
