@@ -22,19 +22,17 @@ int Joueur::get_nb_gares() const //récupère le nombre de gares possédés par 
 
 bool Joueur::paiement(int argent, Joueur *cible)// paiement entre joueurs
 { 
-  // si le joueur ne peut pas payer on renvoie faux
-  if (this->fortune - argent < 0)
-  {
-    return(0);
-  }
-  else{
+
+
   // on ajoute le montant au joueur ciblé
    cible->add_fortune (argent);
   // on soustrait le montant au joueur actuelle 
   this->fortune = this->fortune - argent;
    
-   return(1);
-
+   if(this->get_fortune() <=0)
+    return 0;
+   else
+   return 1;
   }
 }
 
