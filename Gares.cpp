@@ -18,22 +18,19 @@ void Gares::acheter(Joueur *cible)
 {
     cible->add_fortune(-this->get_prix());
     this-> proprietaire = cible;
+    cout << cible->nom << "a acheté" << this->nom<<endl;
 }
 
 //todo : modifier pour qu'action ne serve qu'à payer le loyer et acheter des maisons/hotels
 void Gares::action(Joueur *cible) 
 {
-    if(this->proprietaire == nullptr) //si la case n'a pas de propriétaire
-    {
-        if(cible ->get_fortune() >= this->prix) // si le joueur à assez de sous
-        {
-            this->proprietaire = cible;
-        }
-    }
-    else if(this->proprietaire != nullptr)
+    if(this->proprietaire != nullptr)
     {
         cible->paiement(this->get_loyer(),this->proprietaire);
+        cout<<cible->nom <<"paye "<< this->get_loyer() << " de loyer à "<<this ->proprietaire->nom<<endl;
     }
+    else
+        cout << "Rien ne se passe" <<endl;
 }
 
 bool Gares::is_available() const //renvoie 1 si il y a un proprio, 0 sinon
