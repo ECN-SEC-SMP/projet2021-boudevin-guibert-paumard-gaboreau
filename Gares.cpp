@@ -21,8 +21,7 @@ void Gares::action(Joueur *cible)
     }
     else if(proprietaire != nullptr)
     {
-        cible ->add_fortune(-1*(this->get_loyer()));
-        this ->proprietaire ->add_fortune(get_loyer());
+        cible -> paiement(this ->get_loyer(),this ->  proprietaire);
     }
 }
 
