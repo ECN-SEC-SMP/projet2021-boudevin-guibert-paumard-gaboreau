@@ -46,14 +46,7 @@ return 1 si un logement à été ajouté, 0 sinon
 // si la cible tombe sur une 
 void Constructible::action(Joueur *cible) //acheter case, acheter logement, payer loyer
 {
-    if(this ->proprietaire == nullptr) //si la case n'a pas de propriétaire
-    {
-        if(cible ->get_fortune() >= this->prix) // si le joueur à assez de sous
-        {
-            this -> proprietaire = cible;
-        }
-    }
-    else if(proprietaire != nullptr)// si la case à un proprio
+    if(this ->is_available())// si la case à un proprio
     {
         if(this->get_proprietaire() == cible) //si 
         {
@@ -69,6 +62,8 @@ void Constructible::action(Joueur *cible) //acheter case, acheter logement, paye
         }
         
     }
+    else
+        cout <<"rien ne se passe"<<endl;
 }
 
 Joueur *Constructible::get_proprietaire() const //renvoie un pointeur vers le propriétaire, renvoie nullptn si celui ci n'exiset pas
@@ -94,10 +89,11 @@ Constructible::Constructible(int price,string nom_const)
 
 }
 
-void Constructible::acheter(Joueur *cible) 
+void Constructible::acheter(Joueur *cible) //fonction permettant à un joueur de devenir propriétaire d'une case
 {
     cible ->add_fortune(-1*(this ->get_prix()));
     this-> proprietaire = cible;
+    cout<< cible->get_nom() <<" est devenue proprio de la case " << this->get_nom()<<endl;
 }
 
 
