@@ -29,15 +29,20 @@ return 1 si un logement à été ajouté, 0 sinon
      if(nb_maison <4)
      {
         if(this ->proprietaire->get_fortune() >= this->prix)
+        {
             this -> proprietaire -> add_fortune(-0.7*(this ->prix));
             nb_maison++;
+        }
         return 1;
      }
         
     else if(nb_maison == 4)
      {
         if(nb_hotel <0)
+        {
+            this->proprietaire->add_fortune(-(this->get_prix()));
             nb_hotel++;
+        }
         return 1;
      }
     
