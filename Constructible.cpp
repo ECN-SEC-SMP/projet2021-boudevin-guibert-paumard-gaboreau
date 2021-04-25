@@ -6,7 +6,10 @@ using namespace std;
 #include "Constructible.h"
 #include "Joueur.h"
 
-Constructible::Constructible(int price,string nom_const):Achetable(price,nom_const){}
+Constructible::Constructible(int price,string nom_const):Achetable(price,nom_const){
+    this->nb_hotel = 0;
+    this->nb_maison = 0;
+}
 
 void Constructible::acheter(Joueur *cible) //fonction permettant à un joueur de devenir propriétaire d'une case
 {
