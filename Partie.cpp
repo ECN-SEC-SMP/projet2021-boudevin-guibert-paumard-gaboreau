@@ -103,10 +103,17 @@ void Partie::joueur_suivant(){
 
 void Partie::lancer_action_case(int score_des){
     //Si le dès est impair et que la case n'a pas de propriétaire 
-    if( score_des % 2 == 1 && this->Plat->get_plateau_de_jeu()[this->joueur_actuel->get_position()]->get_proprietaire() == nullptr ){
+    if( score_des % 2 == 1 && this->Plat->get_plateau_de_jeu()[this->joueur_actuel->get_position()]->get_proprietaire() == nullptr){
       //Si en plus la case est compatible avec Achetable alors on achète
       if(Achetable* ach = dynamic_cast<Achetable*>(this->Plat->get_plateau_de_jeu()[this->joueur_actuel->get_position()])) {
+        //S'il a la fortune suffisante
+        if(this->joueur_actuel->get_fortune() > ach->get_prix()){
           ach->acheter(this->joueur_actuel);
+        }
+        else{
+          //Sinon on effectue une action
+          this->Plat->get_plateau_de_jeu()[this->joueur_actuel->get_position()]->action(this->joueur_actuel);         
+        }
       }
       else{
         //Sinon on effectue une action

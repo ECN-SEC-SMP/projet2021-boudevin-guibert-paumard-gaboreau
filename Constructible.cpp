@@ -11,7 +11,7 @@ Constructible::Constructible(int price,string nom_const):Achetable(price,nom_con
 void Constructible::acheter(Joueur *cible) //fonction permettant à un joueur de devenir propriétaire d'une case
 {
     cible ->add_fortune(-this->get_prix());
-    this-> proprietaire = cible;
+    this->proprietaire = cible;
     cout<< cible->get_nom() <<" est devenu proprio de la case " << this->get_nom()<<endl;
 }
 
