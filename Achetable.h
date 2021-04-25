@@ -27,7 +27,6 @@ class Achetable : public Case
         Achetable(int price,string nom_const);
 
         int get_prix() const;
-        string get_nom() const;
         bool is_available() const;
         //! @brief La méthode Action est définie différement dans les deux classes filles
         //! @param cible pointeur vers un objet joueur

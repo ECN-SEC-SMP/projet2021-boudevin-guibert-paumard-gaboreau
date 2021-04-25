@@ -12,10 +12,6 @@ int Achetable::get_prix() const{
     return this->prix;
 };
 
-string Achetable::get_nom() const{
-    return this->nom;
-};
-
 bool Achetable::is_available() const{
     return this->proprietaire == nullptr;
 };
