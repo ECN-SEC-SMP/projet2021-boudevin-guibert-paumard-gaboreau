@@ -10,18 +10,21 @@
 #include "Prison.h"
 
 int main() {
- 
-    // Case *c = new Chance();
-    // Prison pr;
-    // Depart d;
-    // Gares g(1,10,"blaba");
-    // Constructible co(1,"foieifeoi");
+  cout << "erre";
+     Case *c = new Chance();
+     Prison pr;
+     Depart d;
+     Gares g(1,10,"blaba");
+     new Constructible (200,"Rue Foch");
+     
+     
+     Constructible co(1,"foieifeoi");
 
-    // cout << *c << endl;
-    // cout << pr << endl;  
-    // cout << d << endl;
-    // cout << g << endl;
-    // cout << co << endl;
+     cout << *c << endl;
+     cout << pr << endl;  
+     cout << d << endl;
+     cout << g << endl;
+     cout << co << endl;
 
     Partie p;
 
@@ -36,7 +39,7 @@ int main() {
     p.ajouter_joueurs(&j4);
 
     p.demarrer_partie();
-
+   
     exit(0);
 
 }
