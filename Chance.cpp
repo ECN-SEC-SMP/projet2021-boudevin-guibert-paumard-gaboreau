@@ -19,7 +19,7 @@ void Chance::action(Joueur *j){
 
   
   cout << "Le joueur tire une carte chance" << endl;
-  // le joeur tire aléatoirement une carte parmis 12
+  // le joueur tire aléatoirement une carte parmis 12
   int carte = rand() % 12;
 
   switch (carte) {
