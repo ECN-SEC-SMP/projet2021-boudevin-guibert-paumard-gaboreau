@@ -27,7 +27,6 @@ void Partie::demarrer_partie(){
     cout << "Nombre de joueurs trop élevé" << endl;
     exit(-1);
   }
-  cout << "Lancement de la partie " << endl;
   this->joueur_actuel = this->list_joueurs.front();
   //On joue tant qu'il n'y a pas un joueur gagnant 
   do{
@@ -95,9 +94,15 @@ bool Partie::tour_de_jeu() // joue le tour
 
 void Partie::joueur_suivant(){
     //Changer de joueur
-    auto l_front = this->list_joueurs.begin();
+    list<Joueur *>::iterator l_front = find(this->list_joueurs.begin(),this->list_joueurs.end(),this->joueur_actuel);
     nb_tours++;
-    advance(l_front, (this->joueur_actuel->get_id() + 1) % this->list_joueurs.size());
+    //On vérifie que l'on est pas sur le dernier élément de la liste, si c'est le cas on revient au début 
+    if(distance(l_front,this->list_joueurs.end()) == 1){
+      l_front = this->list_joueurs.begin();
+    }
+    else{
+      advance(l_front, 1);
+    }
     this->joueur_actuel = *l_front;
 }
 
