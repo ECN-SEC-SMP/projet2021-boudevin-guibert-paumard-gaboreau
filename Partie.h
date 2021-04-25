@@ -39,11 +39,11 @@ class Partie{
         //!@brief Fonction permettant de démarrer et de jouer la partie de monopoly en mode automatique
         void demarrer_partie(); 
 
-        //!@brief Fonction permettant d'afficher l'ensemble des joueurs assignés à la partie. Utilisé en début de partie
-        void afficher_joueurs() const;
-
         //!@brief Constructeur de la classe Partie
         Partie();
+
+        //!@brief Affichage de l'ensemble des joueurs de la partie, leur fortune ainsi que les cases qu'ils possèdent. Utilisé tous les 10 tours complets
+        void affiche() const;
 
     private:
 
@@ -65,9 +65,6 @@ class Partie{
         //!@brief Joue le tour du joueur courant de manière automatique
         //!@return retourne vrai tant que la partie doit continuer
         bool tour_de_jeu();
-
-        //!@brief Affichage de l'ensemble des joueurs de la partie, leur fortune ainsi que les cases qu'ils possèdent. Utilisé tous les 10 tours complets
-        void affiche() const;
 
         //!@brief Détermine si la partie est terminé
         //!@return retourne vrai s'il ne reste plus qu'un joueur dans la liste, sinon faux
