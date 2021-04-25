@@ -11,20 +11,21 @@
 
 int main() {
   cout << "erre";
-     Case *c = new Chance();
-     Prison pr;
-     Depart d;
-     Gares g(1,10,"blaba");
-     new Constructible (200,"Rue Foch");
-     
-     
-     Constructible co(1,"foieifeoi");
 
-     cout << *c << endl;
-     cout << pr << endl;  
-     cout << d << endl;
-     cout << g << endl;
-     cout << co << endl;
+    //  Case *c = new Chance();
+    //  Prison pr;
+    //  Depart d;
+    //  Gares g(10,"blaba");
+    //  new Constructible (200,"Rue Foch");
+     
+     
+    //  Constructible co(1,"foieifeoi");
+
+    //  cout << *c << endl;
+    //  cout << pr << endl;  
+    //  cout << d << endl;
+    //  cout << g << endl;
+    //  cout << co << endl;
 
     Partie p;
 
