@@ -1,3 +1,7 @@
+//!@file Partie.h
+//!@brief Classe Plateau, permet de décrire le plateau de jeu
+//!@author Valentin 
+
 #ifndef Plateau_h 
 #define Plateau_h 
 
@@ -17,9 +21,6 @@ using namespace std;
 #include "Constructible.h"
 #include "Depart.h"
 
-//!@file Partie.h
-//!@brief Classe Plateau, permet de décrire le plateau de jeu
-//!@author Valentin
 class Plateau{ 
 
 protected:

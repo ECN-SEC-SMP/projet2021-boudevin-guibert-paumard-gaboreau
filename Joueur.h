@@ -1,3 +1,7 @@
+//!@file Joueur.h
+//!@brief Classe Joueur, décrit un joueur participant à la partie de monopoly
+//!@author Théo
+
 #ifndef Joueur_h
 #define Joueur_h
 
@@ -6,9 +10,6 @@ using namespace std;
 
 static int current_id_to_give = 0;
 
-//!@file Joueur.h
-//!@brief Classe Joueur, décrit un joueur participant à la partie de monopoly
-//!@author Théo
 class Joueur{
 
     protected:
