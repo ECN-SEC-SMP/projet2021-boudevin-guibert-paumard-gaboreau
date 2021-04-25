@@ -16,7 +16,7 @@ void Gares::acheter(Joueur *cible)
     cout << cible->get_nom() << "a acheté" << this->get_nom() <<endl;
 }
 
-//todo : modifier pour qu'action ne serve qu'à payer le loyer et acheter des maisons/hotels
+
 void Gares::action(Joueur *cible) 
 {
     if(this->proprietaire != nullptr)

@@ -1,3 +1,7 @@
+//!@file Constructible.h
+//!@brief Classe Constructible, classe fille de la class achetable
+//!@author Dimitri
+
 #ifndef CONSTRUCTIBLE_H
 #define CONSTRUCTIBLE_H
 
@@ -17,11 +21,23 @@ class Constructible : public Achetable
 
         int get_nb_maison() const;
         int get_nb_hotel() const;
+        //! @brief Cette méthode permet d'ajouter un logement (4 maisons et 1 hotel au maximum)
+        //! @param void
+        //! @return retourne vrai si un logement à pu être ajouté, 0 sinon
         bool add_logements(void);
+        //! @brief Cette méthode permet de supprimer un logement de la case
+        //! @param void
+        //! @return retourne vrai si un logement à été supprimé, retourne faux sinon
         void supprimer_logements(void);
 
         Constructible(int price,string nom_const);
+        //! @brief Cette méthode permet d'acheter une case constructible si jamais cette case n'a pas de propriétaire
+        //! @param cible pointeur vers un objet joueur
+        //! @return void
         virtual void acheter(Joueur *cible) override;
+        //! @brief Dans le cas où le joueur tombe sur une case sans propriétaire, ce dernier tente de l'acheter, si jamais le joueur tombe sur une case dont il est le propriétaire, il tente de rajouter une maison, enfin, si il tombe sur la propriété d'un autre joueur, il paye le loyer à ce dernier
+        //! @param cible pointeur vers un objet joueur
+        //! @return void
         virtual void action(Joueur *cible) override;
         virtual int get_loyer() const override;
         
