@@ -15,7 +15,7 @@ class Constructible : public Achetable
 
         int nb_maison;
         int nb_hotel;
-        int loyer = 500;
+        int loyer = 500; 
 
     public: 
 
@@ -32,11 +32,11 @@ class Constructible : public Achetable
 
         Constructible(int price,string nom_const);
         //! @brief Cette méthode permet d'acheter une case constructible si jamais cette case n'a pas de propriétaire
-        //! @param cible pointeur vers un objet joueur
+        //! @param joueur pointeur vers un objet joueur
         //! @return void
         virtual void acheter(Joueur *cible) override;
         //! @brief Dans le cas où le joueur tombe sur une case sans propriétaire, ce dernier tente de l'acheter, si jamais le joueur tombe sur une case dont il est le propriétaire, il tente de rajouter une maison, enfin, si il tombe sur la propriété d'un autre joueur, il paye le loyer à ce dernier
-        //! @param cible pointeur vers un objet joueur
+        //! @param joueur pointeur vers un objet joueur
         //! @return void
         virtual void action(Joueur *cible) override;
         virtual int get_loyer() const override;
