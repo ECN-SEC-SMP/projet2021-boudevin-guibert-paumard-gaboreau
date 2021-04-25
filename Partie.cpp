@@ -139,12 +139,6 @@ int Partie::lancer_de_des() //retourne un entier aléatoire de 1 à 6;
   return (int)(rand() % 6 + 1); // Nombre aléatoire entre 1 et 6
 }
 
-
-bool Partie::finDePartie() //renvoie "vrai" lorsqu'il ne reste plus qu'un joueur n'aillant pas fait fallite
-{
-  return this->list_joueurs.size() == 1;
-}
-
 //Si il y a moins de 5 joueurs
 bool Partie::ajouter_joueurs(Joueur *j) //ajout de joueur
 {
