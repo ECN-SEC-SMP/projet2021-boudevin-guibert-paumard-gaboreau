@@ -40,7 +40,7 @@ class Gares : public Achetable
             else{
             
             vs += " propriétaire :";
-            vs += this->get_proprietaire()->nom;
+            vs += this->get_proprietaire()->get_nom();
 
 
             //affichage loyer

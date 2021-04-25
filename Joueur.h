@@ -1,7 +1,3 @@
-//
-//  Joueur.h
-//  Monopoly
-//
 #ifndef Joueur_h
 #define Joueur_h
 
@@ -10,33 +6,72 @@ using namespace std;
 
 static int current_id_to_give = 0;
 
+//!@file Joueur.h
+//!@brief Classe Joueur, décrit un joueur participant à la partie de monopoly
+//!@author Théo
 class Joueur{
 
     protected:
 
-        int id; //identifiant 1 à 5
-        int nb_gares; //nombre de gares possédés par le joueur
+        int id; 
+        string nom;
+        int nb_gares; /*!< Nombre de Gares possédées par le joueur*/
         
-        int fortune = 100000;
-        bool jailed; //vrai = en prison / faux = libre
-        int position; //position du joueur sur le plateau
+        int fortune = 100000; /*!< Fortune du joueur, 100 000 au départ*/
+        bool jailed; /*!< vrai si le joueur est libre, sinon il est en prison*/
+        int position; /*!< Position du joueur sur le plateau*/
         
     public:
-        string nom; //nom du joueur
+
+        //!@brief Constructeur de la classe Joueur
+        //!@param name argent est le montant du transfère
         Joueur(string name);
+
+        //!@brief Fonction permettant de transférer de l'argent à un autre joueur 
+        //!@param argent argent est le montant du transfère
+        //!@param cible cible est un pointeur vers un le joueur à transférer l'argent
         void paiement(int argent, Joueur *cible);// paiement entre joueurs
-        int get_nb_gares() const; //récupère le nombre de gares possédés par un joueur
-        void add_gare(); //ajouter une gare au joueur
-        bool get_jail() const; //renvoi l'état du joueur (jailed)
-        void set_jail(); //met jailed à vrai
-        int get_fortune() const; //renvoi la fortune du joueur
-        void add_fortune(int montant); //ajoute ou retire un montant au joueur     
-        int get_id() const; //renvoi l'id du joueur  
-        int get_position() const;  
-        void set_position(int pos);
+
+        //!@brief Fonction permettant d'ajouter une gare au joueur
+        void add_gare();
+
+        //!@brief Modifie la fortune du joueur
+        //!@param montant argent à transférer au joueur
+        void add_fortune(int montant);   
+
+        //!@brief Affiche les différentes informations du joueur
         void afficher_joueur() const;
+
+        //!@brief Récupère le nom du joueur
+        //!@return Retourne le nom du joueur
         string get_nom() const;
 
+        //!@brief Récupère l'id du joueur
+        //!@return Retourne l'id du joueur
+        int get_id() const;
+
+        //!@brief Récupère la fortune du joueur
+        //!@return Retourne la fortune du joueur
+        int get_fortune() const;
+
+        //!@brief Récupère la position du joueur
+        //!@return Retourne la position du joueur
+        int get_position() const; 
+
+        //!@brief Change la position du joueur
+        //!@param pos la position à laquelle le joueur doit aller
+        void set_position(int pos);
+
+        //!@brief Récupère l'était jail du joueur
+        //!@return Retourne l'état jail du joueur
+        bool get_jail() const;
+
+        //!@brief Change l'état jail du joueur
+        void set_jail();
+
+        //!@brief Récupère le nombre de gares possédés par un joueur
+        //!@return Retourne le nombre de gares possédés par un joueur
+        int get_nb_gares() const; 
 };
 
 #endif /* Joueur_h */

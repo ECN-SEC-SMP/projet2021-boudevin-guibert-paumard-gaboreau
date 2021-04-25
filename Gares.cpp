@@ -13,7 +13,7 @@ void Gares::acheter(Joueur *cible)
 {
     cible->add_fortune(-this->get_prix());
     this-> proprietaire = cible;
-    cout << cible->nom << "a acheté" << this->nom<<endl;
+    cout << cible->get_nom() << "a acheté" << this->get_nom() <<endl;
 }
 
 //todo : modifier pour qu'action ne serve qu'à payer le loyer et acheter des maisons/hotels

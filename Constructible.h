@@ -46,7 +46,7 @@ class Constructible : public Achetable
             else{
             
             vs += " propriétaire :";
-            vs += this->get_proprietaire()->nom;
+            vs += this->get_proprietaire()->get_nom();
 
             // si le terrain comporte une ou des maisons
             if(this->get_nb_maison() != 0){

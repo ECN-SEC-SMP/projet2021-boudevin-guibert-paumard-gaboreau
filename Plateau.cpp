@@ -91,7 +91,7 @@ int Plateau::nbGares(Joueur* j) const{
   return nb_gares;
 };
 
-vector<Case *> Plateau::get_plateau_de_jeu(){
+vector<Case *> Plateau::get_plateau_de_jeu() const{
   return this->plateau_de_jeu;
 };
 

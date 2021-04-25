@@ -60,7 +60,7 @@ bool Partie::tour_de_jeu() // joue le tour
 
     int fortune_actuelle = this->joueur_actuel->get_fortune();
 
-    cout << "Au tour de : " << this->joueur_actuel->nom << endl << 
+    cout << "Au tour de : " << this->joueur_actuel->get_nom() << endl << 
     "Fortune :" << fortune_actuelle << endl <<
     "Position de départ : " << *(this->Plat->get_plateau_de_jeu()[this->joueur_actuel->get_position()]) << endl << 
     "Score du lancé : " << score_des << endl;

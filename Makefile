@@ -1,5 +1,5 @@
-Tp_Note.out: main.o Gares.o Constructible.o Chance.o Depart.o Prison.o Plateau.o Partie.o Joueur.o
-	g++ -o Tp_Note.out main.o Gares.o Constructible.o Chance.o Depart.o Prison.o Plateau.o Partie.o Joueur.o
+Tp_Note.out: main.o Gares.o Constructible.o Chance.o Depart.o Prison.o Plateau.o Partie.o Joueur.o Case.o Achetable.o
+	g++ -o Tp_Note.out main.o Gares.o Constructible.o Chance.o Depart.o Prison.o Plateau.o Partie.o Joueur.o Case.o Achetable.o
 
 main.o: main.cpp Gares.h Constructible.h Chance.h Depart.h Prison.h Plateau.h Partie.h Joueur.h
 	g++ -c main.cpp
@@ -15,6 +15,12 @@ Chance.o: Chance.cpp Case.h Chance.h
 
 Depart.o: Depart.cpp Case.h Depart.h
 	g++ -c Depart.cpp
+	
+Achetable.o: Achetable.cpp Case.h Achetable.h
+	g++ -c Achetable.cpp
+
+Case.o: Case.cpp Case.h 
+	g++ -c Case.cpp
 
 Prison.o: Prison.cpp Case.h Prison.h
 	g++ -c Prison.cpp

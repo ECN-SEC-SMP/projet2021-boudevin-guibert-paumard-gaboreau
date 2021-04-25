@@ -1,7 +1,6 @@
-//
-//  Partie.h
-//  Monopoly
-//
+//!@file Partie.h
+//!@brief Classe Partie, permet de contrôler le déroulement de la partie de monopoly
+//!@author Valentin / Théo
 
 #ifndef Partie_h
 #define Partie_h
@@ -16,9 +15,7 @@ using namespace std;
 #include "Joueur.h"
 #include "Plateau.h"
 
-//!@file Partie.h
-//!@brief Classe Partie, permet de contrôler le déroulement de la partie de monopoly
-//!@author Valentin / Théo
+
 class Partie{
 
     protected:
