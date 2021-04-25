@@ -20,8 +20,6 @@ class Gares : public Achetable
 
         Gares(int prix, string nom_const);
 
-        int get_id_gare() const;
-
         //! @brief La méthode Action permet de payer le loyer si jamais le joueur tombe sur une case qui possède un propriétaire et qu'il n'est pas ce propriétaire
         //! @param cible pointeur vers un objet joueur
         //! @return void
