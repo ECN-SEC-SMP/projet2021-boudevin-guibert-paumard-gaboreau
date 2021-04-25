@@ -17,7 +17,7 @@ class Chance : public Case {
 
 
     //! @brief la méthode action permet ici de tirer une carte  Chance parmis 12 et d'effectuer son effet
-    //! @param joueur le paramètre cible est un pointeur sur un objet joueur
+    //! @param j le paramètre cible est un pointeur sur un objet joueur
     //! @return void
 
     virtual void action(Joueur *j) override ; //Chance hérite de sa propre classe action
