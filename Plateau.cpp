@@ -26,8 +26,8 @@ void Plateau::initPlateau(){
 
   vec_cases.push_back(new Depart());
   vec_cases.push_back(new Chance());
-  vec_cases.push_back(new Constructible(200,"Rue Foch"));
-  vec_cases.push_back(new Constructible(10, "Rue de la liberté"));
+  vec_cases.push_back(new Constructible(20000,"Rue Foch"));
+  vec_cases.push_back(new Constructible(20000, "Rue de la liberté"));
   vec_cases.push_back(new Gares(20000,"Gare de Nantes"));
   vec_cases.push_back(new Constructible(20000,"Allée du saucisson"));
   vec_cases.push_back(new Chance());
@@ -94,3 +94,17 @@ int Plateau::nbGares(Joueur* j) const{
 vector<Case *> Plateau::get_plateau_de_jeu(){
   return this->plateau_de_jeu;
 };
+
+void Plateau::supprimer_proprietees(Joueur* j){
+  for(Case *c : this->plateau_de_jeu){
+    if(c->get_proprietaire()->get_id() == j->get_id()){
+      cout << j->get_nom() << " n'est plus propriétaire de : " << c->get_nom() << endl;
+      //Si le terrain est constructible il faut raser les maisons et les immeubles
+      if(Constructible* cons = dynamic_cast<Constructible*>(c)) {
+          cons->supprimer_logements();
+      }
+      //Le joueur n'est plus proprietaire de la case
+      c->set_proprietaire(nullptr);
+    }
+  }
+}

@@ -1,5 +1,7 @@
 #include <iostream>
 using namespace std;
+
+#include "Case.h"
 #include "Depart.h"
 #include "Joueur.h"
 
@@ -7,9 +9,6 @@ Depart::Depart (){
     this->proprietaire = nullptr;
     this->nom = "Case départ";
 };
-
-int Depart::get_loyer()const {return (0);};
-Joueur* Depart::get_proprietaire() const{ return(nullptr);};
 
 void Depart::action(Joueur *j){
     // le joueur tombe sur la case Chance il récupère 15000€

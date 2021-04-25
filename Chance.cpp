@@ -2,6 +2,7 @@
 #include <time.h>       /* time */ //for random
 
 using namespace std;
+#include "Case.h"
 #include "Chance.h"
 #include "Joueur.h"
 
@@ -11,17 +12,13 @@ Chance::Chance (){
   this->nom = "Case chance";
 };
 
-int Chance::get_loyer() const{return (0);};
-
-Joueur* Chance::get_proprietaire() const{ return(nullptr);};
-
 void Chance::action(Joueur *j){
 
   //initialisation de la seed aléatoirement
     srand (time(NULL));
 
   
-  cout << "Le joueur tire une carte chance\n" << endl;
+  cout << "Le joueur tire une carte chance" << endl;
   // le joeur tire aléatoirement une carte parmis 12
   int carte = rand() % 12;
 

@@ -41,6 +41,7 @@ class Partie{
         void action(); //action en cours-
         bool finDePartie(); //renvoie "vrai" lorsqu'il ne reste plus qu'un joueur n'aillant pas fait fallite
         bool tour_de_jeu(); // joue le tour -> retourne true tant que la partie doit continuer
+        void joueur_suivant();
 };
 
 #endif /* Partie_h */

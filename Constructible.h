@@ -15,18 +15,16 @@ class Constructible : public Achetable
 
     public: 
 
-        Constructible(int price,string nom_const);
-        virtual void acheter(Joueur *cible) override;
-        virtual void action(Joueur *cible) override;
-        virtual Joueur* get_proprietaire() const override;
-        virtual int get_loyer() const override;
-        virtual int get_prix() const override;
         int get_nb_maison() const;
         int get_nb_hotel() const;
         bool add_logements(void);
-        virtual string get_nom() const override;
-        virtual bool is_available() const override;
+        void supprimer_logements(void);
 
+        Constructible(int price,string nom_const);
+        virtual void acheter(Joueur *cible) override;
+        virtual void action(Joueur *cible) override;
+        virtual int get_loyer() const override;
+        
         std::ostream & do_print(std::ostream & c) const override{
 
             // création du vecteur

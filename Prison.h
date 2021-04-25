@@ -11,8 +11,6 @@ class Prison : public Case
     Prison();
   
     virtual void action(Joueur *j) override ; //Chance hérite de sa propre classe action
-    virtual int get_loyer() const override; // méthode vide
-    virtual Joueur* get_proprietaire() const override;
 
     std::ostream & do_print(std::ostream & c) const override{
       return  c << "Case Prison";

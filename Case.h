@@ -1,5 +1,5 @@
-#ifndef CASE_h 
-#define CASE_h 
+#ifndef Case_h 
+#define Case_h 
 
 #include <iostream>
 #include <stdio.h>
@@ -21,9 +21,11 @@ class Case{
 
     public:
 
+        Joueur* get_proprietaire() const;
+        string get_nom() const;
+        void set_proprietaire(Joueur *j);
+
         virtual void action(Joueur *cible) = 0;
-        virtual int get_loyer() const = 0;
-        virtual Joueur* get_proprietaire() const = 0;
         virtual ostream & do_print(std::ostream& c) const = 0;
 
 };

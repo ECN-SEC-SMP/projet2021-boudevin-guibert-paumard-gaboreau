@@ -35,6 +35,9 @@ public:
     Plateau();
 
     vector<Case *> get_plateau_de_jeu();
+
+    void supprimer_proprietees(Joueur* j);
+
 };
 
 #endif

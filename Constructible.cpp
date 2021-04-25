@@ -2,20 +2,17 @@
 #include <iostream>     // std::cout
 using namespace std;
 
+#include "Achetable.h"
 #include "Constructible.h"
+#include "Joueur.h"
 
-string Constructible::get_nom() const{
-    return this->nom;
-};
+Constructible::Constructible(int price,string nom_const):Achetable(price,nom_const){}
 
-
-int Constructible::get_nb_maison() const //retourne le nombre de maison sur la case
+void Constructible::acheter(Joueur *cible) //fonction permettant à un joueur de devenir propriétaire d'une case
 {
-    return this->nb_maison;
-}
-int Constructible::get_nb_hotel() const //retourne le nombre d'hôtels sur la case
-{
-    return this->nb_hotel;
+    cible ->add_fortune(-this->get_prix());
+    this-> proprietaire = cible;
+    cout<< cible->get_nom() <<" est devenu proprio de la case " << this->get_nom()<<endl;
 }
 
 /* on achète d'abord les maison, une fois la limite des 4 maison
@@ -46,7 +43,7 @@ return 1 si un logement à été ajouté, 0 sinon
 // si la cible tombe sur une 
 void Constructible::action(Joueur *cible) //acheter case, acheter logement, payer loyer
 {
-    if(this ->is_available())// si la case à un proprio
+    if(!this->is_available())// si la case à un proprio
     {
         if(this->get_proprietaire() == cible) //si 
         {
@@ -55,49 +52,33 @@ void Constructible::action(Joueur *cible) //acheter case, acheter logement, paye
             else
                 cout <<"le nombre de logement max a été atteint sur la case" << this -> get_nom();
         }
-        else if(this ->get_proprietaire() != cible)
+        else if(this->get_proprietaire() != cible)
         {
-            cible -> paiement(this ->get_loyer(),this ->  proprietaire);
-            cout << cible->get_nom()<<" a payé " << this->get_loyer()<< " à "<<this->get_loyer()<<endl;
-        }
-        
+            cible->paiement(this->get_loyer(),this->proprietaire);
+            cout << cible->get_nom()<<" a payé " << this->get_loyer()<< " à "<<this->proprietaire->get_nom() << "(fortune de " << this->proprietaire->get_nom() << " : " << this->proprietaire->get_fortune() << ")" << endl;
+        } 
     }
     else
-        cout <<"rien ne se passe"<<endl;
+        cout <<"Rien ne se passe"<<endl;
 }
 
-Joueur *Constructible::get_proprietaire() const //renvoie un pointeur vers le propriétaire, renvoie nullptn si celui ci n'exiset pas
+
+
+void Constructible::supprimer_logements(){
+    this->nb_hotel = 0;
+    this->nb_maison = 0;
+}
+
+int Constructible::get_nb_maison() const //retourne le nombre de maison sur la case
 {
-    return this->proprietaire;
+    return this->nb_maison;
+}
+int Constructible::get_nb_hotel() const //retourne le nombre d'hôtels sur la case
+{
+    return this->nb_hotel;
 }
 
 int Constructible::get_loyer() const //le loyer est calculé en fonction du nombre de maisons et du nombre d'hotel sur la case
 {
-    return((this ->loyer)+(this -> loyer)*this->nb_maison + (this->prix)*nb_hotel)*2;
-}
-
-int Constructible::get_prix() const//renvoie le prix de la case
-{
-    return this->prix;
-}
-
-
-Constructible::Constructible(int price,string nom_const)
-{
-    this->prix = price;
-    this->nom = nom_const;
-
-}
-
-void Constructible::acheter(Joueur *cible) //fonction permettant à un joueur de devenir propriétaire d'une case
-{
-    cible ->add_fortune(-1*(this ->get_prix()));
-    this-> proprietaire = cible;
-    cout<< cible->get_nom() <<" est devenue proprio de la case " << this->get_nom()<<endl;
-}
-
-
-bool Constructible :: is_available() const //renvoie 1 si il y a un proprio, 0 sinon
-{
-    return this->get_proprietaire() == nullptr;
+    return ( this->loyer+ this->loyer*this->nb_maison + this->prix*nb_hotel )*2;
 }

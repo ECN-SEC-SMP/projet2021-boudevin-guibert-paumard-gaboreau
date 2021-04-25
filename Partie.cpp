@@ -52,7 +52,6 @@ bool Partie::tour_de_jeu() // joue le tour
   if(this->joueur_actuel->get_jail()){
     this->joueur_actuel->set_jail();
     cout << "Le joueur était en prison, il passe son tour " << endl;
-    return false;
   }
   else{
 
@@ -64,17 +63,17 @@ bool Partie::tour_de_jeu() // joue le tour
     cout << "Au tour de : " << this->joueur_actuel->nom << endl << 
     "Fortune :" << fortune_actuelle << endl <<
     "Position de départ : " << *(this->Plat->get_plateau_de_jeu()[this->joueur_actuel->get_position()]) << endl << 
-    "-------------------" << endl <<
     "Score du lancé : " << score_des << endl;
 
     //Avancer le joueur 
     this->avance_joueur(score_des);
 
+    //Affiche la case d'arrivee
+    cout << "Nouvelle position : " << *(this->Plat->get_plateau_de_jeu()[this->joueur_actuel->get_position()]) << endl;
+
     //Lancer la case et l'action
     this->lancer_action_case(score_des);
 
-    //Affiche la case d'arrivee
-    cout << "Nouvelle position : " << *(this->Plat->get_plateau_de_jeu()[this->joueur_actuel->get_position()]) << endl;
     //Afficher la fortune du joueur si celle-ci a été modifée
     if(this->joueur_actuel->get_fortune() != fortune_actuelle){
         cout << "Nouvelle fortune : " << this->joueur_actuel->get_fortune() << endl; 
@@ -82,6 +81,8 @@ bool Partie::tour_de_jeu() // joue le tour
 
     //Vérifier la fortune du joueur -> supprimer liste des joueurs
     if(this->joueur_actuel->get_fortune() < 0){
+      cout << "Le joueur n'ayant plus assez de fonds il est retiré de la partie" << endl;
+      this->Plat->supprimer_proprietees(this->joueur_actuel);
       this->list_joueurs.remove(this->joueur_actuel);
     }
 
@@ -89,22 +90,25 @@ bool Partie::tour_de_jeu() // joue le tour
     if(this->list_joueurs.size() == 1){
         return false;
     }
+ 
+  }
+  cout << "--------------Fin du tour-----------------" << endl;
+  //On passe au joueur suivant de la liste
+  this->joueur_suivant();
+  //Le tour est terminé et la partie peut continuer
+  return true;
+}
 
+void Partie::joueur_suivant(){
     //Changer de joueur
     auto l_front = this->list_joueurs.begin();
     advance(l_front, (this->joueur_actuel->get_id() + 1) % this->list_joueurs.size());
     this->joueur_actuel = *l_front;
-
-    cout << "--------------Fin du tour-----------------" << endl;
-    
-    return true;
-
-  }
 }
 
 void Partie::lancer_action_case(int score_des){
     //Si le dès est impair et que la case n'a pas de propriétaire 
-    if( score_des % 2 == 1 && this->Plat->get_plateau_de_jeu()[this->joueur_actuel->get_position()]->get_proprietaire() != nullptr ){
+    if( score_des % 2 == 1 && this->Plat->get_plateau_de_jeu()[this->joueur_actuel->get_position()]->get_proprietaire() == nullptr ){
       //Si en plus la case est compatible avec Achetable alors on achète
       if(Achetable* ach = dynamic_cast<Achetable*>(this->Plat->get_plateau_de_jeu()[this->joueur_actuel->get_position()])) {
           ach->acheter(this->joueur_actuel);
