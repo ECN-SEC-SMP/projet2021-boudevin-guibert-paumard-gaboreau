@@ -29,7 +29,7 @@ class Case{
         string get_nom() const;
         void set_proprietaire(Joueur *j);
         //! @brief la méthode action à une implémentation différente dans chaque classe fille, c'est une classe virtuelle pure
-        //! @param joueur le paramètre cible est un pointeur sur un objet joueur
+        //! @param cible le paramètre cible est un pointeur sur un objet joueur
         //! @return void
         virtual void action(Joueur *cible) = 0;
         virtual ostream & do_print(std::ostream& c) const = 0;

@@ -35,7 +35,7 @@ public:
     //!@brief Permet de remplir le plateau d'un terrain de jeu classique de monopoly
     void initPlateau(); 
 
-    //!@brief Permet de déterminer le nombre de gares associées à un joueur -> Inutilisé dans le fonctionnement de la Partie
+    //!@brief Permet de déterminer le nombre de gares associées à un joueur
     //!@param j cible est un pointeur vers un objet de type joueur
     //!@return retourne le nombre de Gares associées au joueur *j
     int nbGares(Joueur* j) const;  
