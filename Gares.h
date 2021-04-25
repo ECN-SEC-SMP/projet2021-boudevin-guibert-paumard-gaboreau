@@ -9,7 +9,7 @@ class Gares : public Achetable
 {
     protected:
 
-        int loyer = 1000;
+        int loyer = 2500;
 
     public: 
 

@@ -27,18 +27,16 @@ void Partie::demarrer_partie(){
     cout << "Nombre de joueurs trop élevé" << endl;
     exit(-1);
   }
-  cout << "Joueurs au sein de la partie :" << endl;
-  this->afficher_joueurs();
-  cout << "-------------------------------" << endl;
-  cout << "-------------------------------" << endl;
-  cout << "Début de la partie" << endl;
-  cout << "-------------------------------" << endl;
-  cout << "-------------------------------" << endl;
+  cout << "Lancement de la partie " << endl;
   this->joueur_actuel = this->list_joueurs.front();
   //On joue tant qu'il n'y a pas un joueur gagnant 
-  while(this->tour_de_jeu()){
+  do{
+    //Tous les 10 tours on fait un point sur la situation des joueurs
+    if(nb_tours % (10*this->list_joueurs.size()) == 0){this->affiche();}
     sleep(1);
   }
+  while(!this->tour_de_jeu());
+
   if(this->list_joueurs.size() == 1){
     cout << "Le gagnant est : " << endl;
     //Afficher joueur !
@@ -85,23 +83,20 @@ bool Partie::tour_de_jeu() // joue le tour
       this->Plat->supprimer_proprietees(this->joueur_actuel);
       this->list_joueurs.remove(this->joueur_actuel);
     }
-
-    //Test le nb de joueurs restants 
-    if(this->list_joueurs.size() == 1){
-        return false;
-    }
  
   }
   cout << "--------------Fin du tour-----------------" << endl;
   //On passe au joueur suivant de la liste
   this->joueur_suivant();
-  //Le tour est terminé et la partie peut continuer
-  return true;
+
+  //Est-ce que la partie est terminée ? 
+  return this->finDePartie();
 }
 
 void Partie::joueur_suivant(){
     //Changer de joueur
     auto l_front = this->list_joueurs.begin();
+    nb_tours++;
     advance(l_front, (this->joueur_actuel->get_id() + 1) % this->list_joueurs.size());
     this->joueur_actuel = *l_front;
 }
@@ -156,10 +151,22 @@ Joueur* Partie::get_joueur_actuel() const //renvoie le joueur actuel
   return this->joueur_actuel;
 }
 
-void Partie::afficher_joueurs() const{ //affiche l'ensemble des joueurs de la partie
+void Partie::affiche() const{
+  cout << "-------------------------------" << endl;
+  cout << "-------------Situation des joueurs-----------------" << endl;
   cout << "-------------------------------" << endl;
   for(Joueur *j : this->list_joueurs){
     j->afficher_joueur();
-    cout << "-------------------------------" << endl;
+    for(Case *c : this->Plat->get_plateau_de_jeu()){
+      if(c->get_proprietaire() != nullptr && c->get_proprietaire()->get_id() == j->get_id()){
+        cout << *c << endl;
+      }
+    }
+    cout << "----------------Joueur suivant---------------" << endl;
   }
+  cout << "-------------Fin situation des joueurs-----------------" << endl;
+}
+
+bool Partie::finDePartie() const{
+  return this->list_joueurs.size() == 1;
 }

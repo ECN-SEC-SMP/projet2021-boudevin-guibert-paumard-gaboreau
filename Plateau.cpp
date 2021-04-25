@@ -97,7 +97,7 @@ vector<Case *> Plateau::get_plateau_de_jeu() const{
 
 void Plateau::supprimer_proprietees(Joueur* j){
   for(Case *c : this->plateau_de_jeu){
-    if(c->get_proprietaire()->get_id() == j->get_id()){
+    if(c->get_proprietaire() != nullptr && c->get_proprietaire()->get_id() == j->get_id()){
       cout << j->get_nom() << " n'est plus propriétaire de : " << c->get_nom() << endl;
       //Si le terrain est constructible il faut raser les maisons et les immeubles
       if(Constructible* cons = dynamic_cast<Constructible*>(c)) {
