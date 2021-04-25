@@ -10,7 +10,6 @@
 #include "Prison.h"
 
 int main() {
-  cout << "erre";
 
     //  Case *c = new Chance();
     //  Prison pr;

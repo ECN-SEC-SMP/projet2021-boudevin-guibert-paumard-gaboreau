@@ -48,7 +48,7 @@ bool Partie::tour_de_jeu() // joue le tour
   //Checker l'état prison
   if(this->joueur_actuel->get_jail()){
     this->joueur_actuel->set_jail();
-    cout << "Le joueur était en prison, il passe son tour " << endl;
+    cout << this->joueur_actuel->get_nom() << " était en prison, il passe son tour " << endl;
   }
   else{
 
