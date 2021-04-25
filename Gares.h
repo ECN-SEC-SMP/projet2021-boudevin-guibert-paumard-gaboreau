@@ -21,12 +21,12 @@ class Gares : public Achetable
         Gares(int prix, string nom_const);
 
         //! @brief La méthode Action permet de payer le loyer si jamais le joueur tombe sur une case qui possède un propriétaire et qu'il n'est pas ce propriétaire
-        //! @param cible pointeur vers un objet joueur
+        //! @param joueur pointeur vers un objet joueur
         //! @return void
         virtual void action(Joueur *j) override ; //Chance hérite de sa propre classe action
         virtual int get_loyer() const override; // méthode vide
         //! @brief La méthode Acheter permet à un joeur de devenir propriétaire d'une case achetable en ettant débité du prix de la case
-        //! @param cible pointeur vers un objet joueur
+        //! @param joueur pointeur vers un objet joueur
         //! @return void
         virtual void acheter(Joueur *cible) override;
         
