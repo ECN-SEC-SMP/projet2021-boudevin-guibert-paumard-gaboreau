@@ -30,11 +30,11 @@ class Achetable : public Case
         string get_nom() const;
         bool is_available() const;
         //! @brief La méthode Action est définie différement dans les deux classes filles
-        //! @param joeur pointeur vers un objet joueur
+        //! @param cible pointeur vers un objet joueur
         //! @return void
         virtual void action(Joueur *cible) = 0;
         //! @brief La méthode Acheter est définie différement dans les deux classes filles
-        //! @param joeur pointeur vers un objet joueur
+        //! @param cible pointeur vers un objet joueur
         //! @return void
         virtual void acheter(Joueur *cible) = 0;
         virtual ostream & do_print(std::ostream& c) const = 0;
